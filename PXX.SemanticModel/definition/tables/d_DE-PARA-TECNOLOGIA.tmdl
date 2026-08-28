@@ -1,0 +1,35 @@
+table d_DE-PARA-TECNOLOGIA
+	lineageTag: 1b0885d1-70a8-4bd0-a4b3-76b65f470bc8
+
+	column EQUIPAMENTO
+		dataType: string
+		lineageTag: 6d093301-3fc5-407c-bca2-c4dd30d96e6b
+		summarizeBy: none
+		sourceColumn: EQUIPAMENTO
+
+		annotation SummarizationSetBy = Automatic
+
+	column CATEGORIA
+		dataType: string
+		lineageTag: 06aa0480-5656-471b-bb5f-933886075a3c
+		summarizeBy: none
+		sourceColumn: CATEGORIA
+
+		annotation SummarizationSetBy = Automatic
+
+	partition d_DE-PARA-TECNOLOGIA = m
+		mode: import
+		queryGroup: 'DE PARA'
+		source =
+				let
+				    Fonte = Excel.Workbook(File.Contents(#"Pasta Raiz" & "\DE PARA PXX.xlsx"), null, true),
+				    #"DE PARA TECNOLOGIA_Sheet" = Fonte{[Item="DE PARA TECNOLOGIA",Kind="Sheet"]}[Data],
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(#"DE PARA TECNOLOGIA_Sheet", [PromoteAllScalars=true]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"EQUIPAMENTO", type text}, {"CATEGORIA", type text}})
+				in
+				    #"Tipo Alterado"
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,2574 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/2.1.0/schema.json",
+  "displayName": "Conversão",
+  "name": "050eeba541a8f8447696",
+  "options": {
+    "targetVisualNames": []
+  },
+  "explorationState": {
+    "version": "1.3",
+    "activeSection": "36cfff8f4e039af01223",
+    "sections": {
+      "36cfff8f4e039af01223": {
+        "filters": {
+          "byExpr": [
+            {
+              "name": "6d76f0cc450a61292030",
+              "type": "Categorical",
+              "expression": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "f_InventarioFisico"
+                    }
+                  },
+                  "Property": "Código Complementar"
+                }
+              },
+              "howCreated": 1
+            }
+          ]
+        },
+        "visualContainers": {
+          "0413dfc735f660534cea": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {}
+            }
+          },
+          "22a565dc8dcdf9f9940f": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "ae077fec01ac1c707ed3",
+                  "type": "Categorical",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "f",
+                        "Entity": "f_MateriaisRetirados",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "In": {
+                            "Expressions": [
+                              {
+                                "Column": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Source": "f"
+                                    }
+                                  },
+                                  "Property": "Status Movimento"
+                                }
+                              }
+                            ],
+                            "Values": [
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "'PENDENTE DEVOLUÇÃO'"
+                                  }
+                                }
+                              ]
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_MateriaisRetirados"
+                        }
+                      },
+                      "Property": "Status Movimento"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "d8b2c8a560d68a310a6b",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_ConversaoProdutos"
+                        }
+                      },
+                      "Property": "Projeto"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "f2269a16b789167ebfc0",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_ConversaoProdutos"
+                        }
+                      },
+                      "Property": "Categoria do Destino"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "9e6adbf10825471dece9",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_ConversaoProdutos"
+                        }
+                      },
+                      "Property": "Material Destino"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "062336de35ef852c9fed",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "f_ConversaoProdutos"
+                            }
+                          },
+                          "Property": "Qtde Destino"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "barChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "f_ConversaoProdutos"
+                            }
+                          },
+                          "Property": "Qtde Destino"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_ConversaoProdutos"
+                        }
+                      },
+                      "Property": "Projeto"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "270f6a19862f8c84858d": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "00f7ef37cd3500720966",
+                  "type": "Categorical",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "f",
+                        "Entity": "f_MateriaisRetirados",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Not": {
+                            "Expression": {
+                              "In": {
+                                "Expressions": [
+                                  {
+                                    "Column": {
+                                      "Expression": {
+                                        "SourceRef": {
+                                          "Source": "f"
+                                        }
+                                      },
+                                      "Property": "Conv. Condição Destino"
+                                    }
+                                  }
+                                ],
+                                "Values": [
+                                  [
+                                    {
+                                      "Literal": {
+                                        "Value": "null"
+                                      }
+                                    }
+                                  ]
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_MateriaisRetirados"
+                        }
+                      },
+                      "Property": "Conv. Condição Destino"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "0c322dd2b67895692678",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_ConversaoProdutos"
+                        }
+                      },
+                      "Property": "Categoria da Origem"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "ddcb452128a9873d449a",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_ConversaoProdutos"
+                        }
+                      },
+                      "Property": "Material Origem"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "ea6e475a38632d56537d",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_ConversaoProdutos"
+                        }
+                      },
+                      "Property": "Condição Destino"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "9f5e7875cc219daf661d",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "f_ConversaoProdutos"
+                            }
+                          },
+                          "Property": "Qtde Origem"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "barChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "f_ConversaoProdutos"
+                            }
+                          },
+                          "Property": "Qtde Origem"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_ConversaoProdutos"
+                        }
+                      },
+                      "Property": "Categoria da Origem"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "295eaea9a3b496eef954": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "ae077fec01ac1c707ed3",
+                  "type": "Categorical",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "f",
+                        "Entity": "f_MateriaisRetirados",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "In": {
+                            "Expressions": [
+                              {
+                                "Column": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Source": "f"
+                                    }
+                                  },
+                                  "Property": "Status Movimento"
+                                }
+                              }
+                            ],
+                            "Values": [
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "'PENDENTE DEVOLUÇÃO'"
+                                  }
+                                }
+                              ]
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_MateriaisRetirados"
+                        }
+                      },
+                      "Property": "Status Movimento"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "17eed8b1afba30b5d18f",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_ConversaoProdutos"
+                        }
+                      },
+                      "Property": "Projeto"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "56a0bfe7d8c2d90b8ad4",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_ConversaoProdutos"
+                        }
+                      },
+                      "Property": "Categoria da Origem"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "2eb446fc52e43c21c12c",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_ConversaoProdutos"
+                        }
+                      },
+                      "Property": "Material Origem"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "9f81c5e093433880debd",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "f_ConversaoProdutos"
+                            }
+                          },
+                          "Property": "Qtde Origem"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "barChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "f_ConversaoProdutos"
+                            }
+                          },
+                          "Property": "Qtde Origem"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_ConversaoProdutos"
+                        }
+                      },
+                      "Property": "Projeto"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "297829c1c28b2a7b2937": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "c4d33efcafeb3510656d",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "d_Calendário"
+                        }
+                      },
+                      "Property": "Ano-Mês"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "8eb8bea417203d9f6e46",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_RM&DM"
+                        }
+                      },
+                      "Property": "Projeto"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "7aac09e6256a8b815c21",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_RM&DM"
+                        }
+                      },
+                      "Property": "_Qtd_Requisitada"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "columnChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "d_Calendário"
+                        }
+                      },
+                      "Property": "Ano-Mês"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "d_Calendário"
+                        }
+                      },
+                      "Property": "Ano-Mês"
+                    }
+                  }
+                ]
+              },
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "2d0c6a794c4748df5e86": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "80b29fccd3ddb75b74dd",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_ConversaoProdutos"
+                        }
+                      },
+                      "Property": "Projeto"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        },
+                        "isInvertedSelectionMode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "true"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_ConversaoProdutos"
+                        }
+                      },
+                      "Property": "Projeto"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "3257b1c321a87704c3a6": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "d24a6842c3286ae2ef51",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_ConversaoProdutos"
+                        }
+                      },
+                      "Property": "Material Origem"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_ConversaoProdutos"
+                        }
+                      },
+                      "Property": "Material Origem"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "327c40dfc9a0793c9266": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "47308aec0e282861fddb",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_RM&DM"
+                        }
+                      },
+                      "Property": "_Qtd_Requisitada"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "card",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_RM&DM"
+                        }
+                      },
+                      "Property": "_Qtd_Requisitada"
+                    }
+                  }
+                }
+              ],
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "3d9ddf89ca464c98be37": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "1ff96c347f6d13c0c79b",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "d_Calendário"
+                        }
+                      },
+                      "Property": "Data"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "general": [
+                    {
+                      "properties": {
+                        "filter": {
+                          "filter": {
+                            "Version": 2,
+                            "From": [
+                              {
+                                "Name": "d",
+                                "Entity": "d_Calendário",
+                                "Type": 0
+                              }
+                            ],
+                            "Where": [
+                              {
+                                "Condition": {
+                                  "Comparison": {
+                                    "ComparisonKind": 0,
+                                    "Left": {
+                                      "Column": {
+                                        "Expression": {
+                                          "SourceRef": {
+                                            "Source": "d"
+                                          }
+                                        },
+                                        "Property": "Data"
+                                      }
+                                    },
+                                    "Right": {
+                                      "DateSpan": {
+                                        "Expression": {
+                                          "Now": {}
+                                        },
+                                        "TimeUnit": 3
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'RelativeDatePicker'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "orderBy": [
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "d_Calendário"
+                        }
+                      },
+                      "Property": "Data"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "d_Calendário"
+                        }
+                      },
+                      "Property": "Data"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "4181bbc1556e9d676339": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "7f6757ed9bc702cc8928",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_ConversaoProdutos"
+                        }
+                      },
+                      "Property": "Destino é Serializado?"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "advancedSlicerVisual",
+              "objects": {
+                "merge": {
+                  "general": [
+                    {
+                      "properties": {
+                        "filter": {
+                          "filter": {
+                            "Version": 2,
+                            "From": [
+                              {
+                                "Name": "f",
+                                "Entity": "f_ConversaoProdutos",
+                                "Type": 0
+                              }
+                            ],
+                            "Where": [
+                              {
+                                "Condition": {
+                                  "In": {
+                                    "Expressions": [
+                                      {
+                                        "Column": {
+                                          "Expression": {
+                                            "SourceRef": {
+                                              "Source": "f"
+                                            }
+                                          },
+                                          "Property": "Destino é Serializado?"
+                                        }
+                                      }
+                                    ],
+                                    "Values": [
+                                      [
+                                        {
+                                          "Literal": {
+                                            "Value": "'SIM'"
+                                          }
+                                        }
+                                      ]
+                                    ]
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "44aa185c53eda07b4b62": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "c96548bd9d92181b7f0f",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "d_Calendário"
+                        }
+                      },
+                      "Property": "Ano-Mês"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "94f295713b863a09a494",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_ConversaoProdutos"
+                        }
+                      },
+                      "Property": "Condição Destino"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "da94ce30cefcbf7ac7c1",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "f_ConversaoProdutos"
+                            }
+                          },
+                          "Property": "Qtde Destino"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "columnChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "d_Calendário"
+                        }
+                      },
+                      "Property": "Ano-Mês"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "d_Calendário"
+                        }
+                      },
+                      "Property": "Ano-Mês"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "56e7edaf37cadc18bc90": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "fad25dafda9654000e22",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "d_Calendário"
+                        }
+                      },
+                      "Property": "Ano-Mês"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "0b9611c9a3aef7799783",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_MateriaisAplicados"
+                        }
+                      },
+                      "Property": "d_DE-PARA-TECNOLOGIA.CATEGORIA"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "098ad015b16d37d8cc3e",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "f_MateriaisAplicados"
+                            }
+                          },
+                          "Property": "Qtde. Aplic."
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "columnChart",
+              "objects": {},
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "d_Calendário"
+                        }
+                      },
+                      "Property": "Ano-Mês"
+                    }
+                  }
+                ]
+              },
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "623471f5bc494023453b": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "b0abf031b4954d064773",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_ConversaoProdutos"
+                        }
+                      },
+                      "Property": "Integridade Qtde."
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "advancedSlicerVisual",
+              "objects": {
+                "merge": {
+                  "general": [
+                    {
+                      "properties": {
+                        "filter": {
+                          "filter": {
+                            "Version": 2,
+                            "From": [
+                              {
+                                "Name": "f",
+                                "Entity": "f_ConversaoProdutos",
+                                "Type": 0
+                              }
+                            ],
+                            "Where": [
+                              {
+                                "Condition": {
+                                  "In": {
+                                    "Expressions": [
+                                      {
+                                        "Column": {
+                                          "Expression": {
+                                            "SourceRef": {
+                                              "Source": "f"
+                                            }
+                                          },
+                                          "Property": "Integridade Qtde."
+                                        }
+                                      }
+                                    ],
+                                    "Values": [
+                                      [
+                                        {
+                                          "Literal": {
+                                            "Value": "'OK'"
+                                          }
+                                        }
+                                      ]
+                                    ]
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "65119732d1de49085029": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "65efbddf4e1b4d45e659": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "3757cf59e9687e47284b",
+                  "type": "RelativeDate",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "d",
+                        "Entity": "d_Calendário",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Between": {
+                            "Expression": {
+                              "Column": {
+                                "Expression": {
+                                  "SourceRef": {
+                                    "Source": "d"
+                                  }
+                                },
+                                "Property": "Data"
+                              }
+                            },
+                            "LowerBound": {
+                              "DateSpan": {
+                                "Expression": {
+                                  "DateAdd": {
+                                    "Expression": {
+                                      "Now": {}
+                                    },
+                                    "Amount": -6,
+                                    "TimeUnit": 2
+                                  }
+                                },
+                                "TimeUnit": 2
+                              }
+                            },
+                            "UpperBound": {
+                              "DateSpan": {
+                                "Expression": {
+                                  "DateAdd": {
+                                    "Expression": {
+                                      "Now": {}
+                                    },
+                                    "Amount": -1,
+                                    "TimeUnit": 2
+                                  }
+                                },
+                                "TimeUnit": 2
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "d_Calendário"
+                        }
+                      },
+                      "Property": "Data"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "fa904eb9f9318442e2bc",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "d_DE-PARA-SERVIÇO"
+                        }
+                      },
+                      "Property": "CATEGORIA"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "96604f90c9d97a7a66a2",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_RM&DM"
+                        }
+                      },
+                      "Property": "_Qtd_Requisitada_MêsAnterior"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "ecf5a2f0e6e39a1387fd",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_RM&DM"
+                        }
+                      },
+                      "Property": "_Qtd_Requisitada"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "b501b4061da1529c9b21",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "d_Calendário"
+                        }
+                      },
+                      "Property": "Ano-Mês"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "kpi",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "6e24dc14918069488a3c": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "fe2bc3a6cf51a9bced82",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_ConversaoProdutos"
+                        }
+                      },
+                      "Property": "Condição Destino"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "general": [
+                    {
+                      "properties": {
+                        "filter": {
+                          "filter": {
+                            "Version": 2,
+                            "From": [
+                              {
+                                "Name": "f",
+                                "Entity": "f_ConversaoProdutos",
+                                "Type": 0
+                              }
+                            ],
+                            "Where": [
+                              {
+                                "Condition": {
+                                  "In": {
+                                    "Expressions": [
+                                      {
+                                        "Column": {
+                                          "Expression": {
+                                            "SourceRef": {
+                                              "Source": "f"
+                                            }
+                                          },
+                                          "Property": "Condição Destino"
+                                        }
+                                      }
+                                    ],
+                                    "Values": [
+                                      [
+                                        {
+                                          "Literal": {
+                                            "Value": "'DESUSO'"
+                                          }
+                                        }
+                                      ],
+                                      [
+                                        {
+                                          "Literal": {
+                                            "Value": "'REAPROVEITADO'"
+                                          }
+                                        }
+                                      ],
+                                      [
+                                        {
+                                          "Literal": {
+                                            "Value": "'DEFEITO'"
+                                          }
+                                        }
+                                      ]
+                                    ]
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_ConversaoProdutos"
+                        }
+                      },
+                      "Property": "Condição Destino"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "7010ce716cb0d868e9cf": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "3f7193c31f172daa1a57",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_ConversaoProdutos"
+                        }
+                      },
+                      "Property": "Contrato"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "9015dcba23b8c574320b",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_ConversaoProdutos"
+                        }
+                      },
+                      "Property": "Projeto"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "e686026d0e24a6b3b9f8",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_ConversaoProdutos"
+                        }
+                      },
+                      "Property": "Seq. Conversão"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "67d4cd5a64b54c3f31e7",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_ConversaoProdutos"
+                        }
+                      },
+                      "Property": "Cód. Material Origem"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "97e5d4b6d427266094f9",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_ConversaoProdutos"
+                        }
+                      },
+                      "Property": "Material Origem"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "c1b1e4a3e1e647c93e8b",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_ConversaoProdutos"
+                        }
+                      },
+                      "Property": "Condição Origem"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "f3a2cb9f73ac7333dd48",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_ConversaoProdutos"
+                        }
+                      },
+                      "Property": "Categoria da Origem"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "3ecd46de47b4bd2b814a",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_ConversaoProdutos"
+                        }
+                      },
+                      "Property": "Cod. Cpl Orig."
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "8ea193c6739585e1572c",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_ConversaoProdutos"
+                        }
+                      },
+                      "Property": "Origem é Serializado?"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "02034918bc1b89bdd94d",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_ConversaoProdutos"
+                        }
+                      },
+                      "Property": "Qtde Origem"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "446157c2daccc672f21a",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_ConversaoProdutos"
+                        }
+                      },
+                      "Property": "Unid. Origem"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "e55ce1f78f39f00a1325",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_ConversaoProdutos"
+                        }
+                      },
+                      "Property": "Cód. Material Destino"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "3e9c2f61c1253cc714fc",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_ConversaoProdutos"
+                        }
+                      },
+                      "Property": "Material Destino"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "179804d6a672ffb6c519",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_ConversaoProdutos"
+                        }
+                      },
+                      "Property": "Condição Destino"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "7c19ea82477be63c27f9",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_ConversaoProdutos"
+                        }
+                      },
+                      "Property": "Categoria do Destino"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "ca401c7e1de945fef7ae",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_ConversaoProdutos"
+                        }
+                      },
+                      "Property": "Cod. Cpl Destino"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "a46844b2948ac94d83d4",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_ConversaoProdutos"
+                        }
+                      },
+                      "Property": "Destino é Serializado?"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "f95c9212a68647ce8610",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_ConversaoProdutos"
+                        }
+                      },
+                      "Property": "Qtde Destino"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "687adfebb6e33ae09f13",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_ConversaoProdutos"
+                        }
+                      },
+                      "Property": "Unid. Destino"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "13e310101ab0c0f80e1e",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_ConversaoProdutos"
+                        }
+                      },
+                      "Property": "Dia Criação"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "41dbdfcd4bf5b7a1f2c3",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_ConversaoProdutos"
+                        }
+                      },
+                      "Property": "Hora Criação"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "4310919b6237c4a9ec21",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_ConversaoProdutos"
+                        }
+                      },
+                      "Property": "Usuário Criação"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "39f8ad48f59e339e383c",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_ConversaoProdutos"
+                        }
+                      },
+                      "Property": "Integridade do Serial"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "b59659580e92c11d760e",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_ConversaoProdutos"
+                        }
+                      },
+                      "Property": "Integridade Qtde."
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "tableEx",
+              "objects": {}
+            }
+          },
+          "713d091e180f67ccc1ed": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "fb515de146e1ff3c3791",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Updated"
+                        }
+                      },
+                      "Property": "Atualização"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "card",
+              "objects": {}
+            }
+          },
+          "862fd329c547beafc979": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "f19afa336b3bf762cba5",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_ConversaoProdutos"
+                        }
+                      },
+                      "Property": "Categoria do Destino"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "general": [
+                    {
+                      "properties": {
+                        "filter": {
+                          "filter": {
+                            "Version": 2,
+                            "From": [
+                              {
+                                "Name": "f",
+                                "Entity": "f_ConversaoProdutos",
+                                "Type": 0
+                              }
+                            ],
+                            "Where": [
+                              {
+                                "Condition": {
+                                  "Not": {
+                                    "Expression": {
+                                      "In": {
+                                        "Expressions": [
+                                          {
+                                            "Column": {
+                                              "Expression": {
+                                                "SourceRef": {
+                                                  "Source": "f"
+                                                }
+                                              },
+                                              "Property": "Categoria do Destino"
+                                            }
+                                          }
+                                        ],
+                                        "Values": [
+                                          [
+                                            {
+                                              "Literal": {
+                                                "Value": "'NÃO MAPEADO'"
+                                              }
+                                            }
+                                          ]
+                                        ]
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        },
+                        "isInvertedSelectionMode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "true"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_ConversaoProdutos"
+                        }
+                      },
+                      "Property": "Categoria do Destino"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "9496dec006ae54c247e2": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "ecb40bbf7733d89a6ce8",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_ConversaoProdutos"
+                        }
+                      },
+                      "Property": "Categoria da Origem"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        },
+                        "isInvertedSelectionMode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "true"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_ConversaoProdutos"
+                        }
+                      },
+                      "Property": "Categoria da Origem"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "99a2f0c70b2b20693f07": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "20041b90b9077406c0cd",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_RM&DM"
+                        }
+                      },
+                      "Property": "_ConsumoMédioMêsRequisição"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "card",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_RM&DM"
+                        }
+                      },
+                      "Property": "_ConsumoMédioMêsRequisição"
+                    }
+                  }
+                }
+              ],
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "9ab9fbae90b91fa6ebc9": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "32e770f9be3b9377dfaa",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "f_ConversaoProdutos"
+                            }
+                          },
+                          "Property": "Qtde Destino"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "card",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "f_ConversaoProdutos"
+                            }
+                          },
+                          "Property": "Qtde Destino"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "a06b798c060d655d6a6a": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "18e668d3952f4c7d3e7c",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_ConversaoProdutos"
+                        }
+                      },
+                      "Property": "Condição Destino"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "b240c58e7965d709f8dd",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "f_ConversaoProdutos"
+                            }
+                          },
+                          "Property": "Qtde Destino"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "donutChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "f_ConversaoProdutos"
+                            }
+                          },
+                          "Property": "Qtde Destino"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_ConversaoProdutos"
+                        }
+                      },
+                      "Property": "Condição Destino"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "a2a5de059c7f14ff07d2": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "dc72fcdcd61771e7f558",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "d_Calendário"
+                        }
+                      },
+                      "Property": "Ano-Mês"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "a9af99a3773dd1e4e1ef",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_ConversaoProdutos"
+                        }
+                      },
+                      "Property": "% Reaproveitamento"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "areaChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "d_Calendário"
+                        }
+                      },
+                      "Property": "Ano-Mês"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "d_Calendário"
+                        }
+                      },
+                      "Property": "Ano-Mês"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "aed56ca1a2ae13f66fdb": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "5060929b34ea53ee16a4",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_ConversaoProdutos"
+                        }
+                      },
+                      "Property": "Origem é Serializado?"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "advancedSlicerVisual",
+              "objects": {
+                "merge": {
+                  "general": [
+                    {
+                      "properties": {
+                        "filter": {
+                          "filter": {
+                            "Version": 2,
+                            "From": [
+                              {
+                                "Name": "f",
+                                "Entity": "f_ConversaoProdutos",
+                                "Type": 0
+                              }
+                            ],
+                            "Where": [
+                              {
+                                "Condition": {
+                                  "In": {
+                                    "Expressions": [
+                                      {
+                                        "Column": {
+                                          "Expression": {
+                                            "SourceRef": {
+                                              "Source": "f"
+                                            }
+                                          },
+                                          "Property": "Origem é Serializado?"
+                                        }
+                                      }
+                                    ],
+                                    "Values": [
+                                      [
+                                        {
+                                          "Literal": {
+                                            "Value": "'SIM'"
+                                          }
+                                        }
+                                      ]
+                                    ]
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "d296e53b6816c1863ac3": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "c2b35c1cf4bac24f3cf6",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_ConversaoProdutos"
+                        }
+                      },
+                      "Property": "Integridade do Serial"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "advancedSlicerVisual",
+              "objects": {
+                "merge": {
+                  "general": [
+                    {
+                      "properties": {
+                        "filter": {
+                          "filter": {
+                            "Version": 2,
+                            "From": [
+                              {
+                                "Name": "f",
+                                "Entity": "f_ConversaoProdutos",
+                                "Type": 0
+                              }
+                            ],
+                            "Where": [
+                              {
+                                "Condition": {
+                                  "In": {
+                                    "Expressions": [
+                                      {
+                                        "Column": {
+                                          "Expression": {
+                                            "SourceRef": {
+                                              "Source": "f"
+                                            }
+                                          },
+                                          "Property": "Integridade do Serial"
+                                        }
+                                      }
+                                    ],
+                                    "Values": [
+                                      [
+                                        {
+                                          "Literal": {
+                                            "Value": "'OK'"
+                                          }
+                                        }
+                                      ]
+                                    ]
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "e0fa2f28b7bb655752f5": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "912894ef5e128c33accd",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_ConversaoProdutos"
+                        }
+                      },
+                      "Property": "Cód. Material Origem"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_ConversaoProdutos"
+                        }
+                      },
+                      "Property": "Cód. Material Origem"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "f1326c1dc35cd61cff4a": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "b0f8c329b5e97741befe",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_ConversaoProdutos"
+                        }
+                      },
+                      "Property": "Condição Origem"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_ConversaoProdutos"
+                        }
+                      },
+                      "Property": "Condição Origem"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "6c849cb3789e5558eb34": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          }
+        }
+      }
+    },
+    "objects": {
+      "merge": {
+        "outspacePane": [
+          {
+            "properties": {
+              "expanded": {
+                "expr": {
+                  "Literal": {
+                    "Value": "false"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

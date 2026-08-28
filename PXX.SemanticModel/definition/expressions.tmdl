@@ -1,0 +1,503 @@
+expression 'Pasta Raiz' = "C:\Users\proxx\OneDrive\Área de Trabalho\PXX\Estoque" meta [IsParameterQuery=true, Type="Any", IsParameterQueryRequired=true]
+	lineageTag: 884a2cd8-6b2c-4197-a1fe-8a633b3d5bd2
+	queryGroup: 'Pasta do Projeto'
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Text
+
+expression Parâmetro2 = #"Arquivo de Amostra (2)" meta [IsParameterQuery=true, BinaryIdentifier=#"Arquivo de Amostra (2)", Type="Binary", IsParameterQueryRequired=true]
+	lineageTag: d99a66b8-f2fd-48aa-a871-3b407bb80b92
+	queryGroup: 'Devolução Equip Aniel\Conferência de Movimento\Transformar Arquivo de Conferencia movimento\Consultas Auxiliares'
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Binary
+
+expression 'Arquivo de Amostra (2)' =
+		let
+		    Fonte = Folder.Files(#"Pasta Raiz" & "\Conferência de Movimento"),
+		    Navegação1 = Fonte{0}[Content]
+		in
+		    Navegação1
+	lineageTag: 3d0798bd-13fe-4c43-b667-7b6d4b0a017a
+	queryGroup: 'Devolução Equip Aniel\Conferência de Movimento\Transformar Arquivo de Conferencia movimento\Consultas Auxiliares'
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Binary
+
+expression 'Transformar Arquivo (2)' =
+		let
+		    Fonte = (Parâmetro2 as binary) => let
+		    Fonte = Excel.Workbook(Parâmetro2, null, true),
+		    SINAPSE_Sheet = Fonte{[Item="SINAPSE",Kind="Sheet"]}[Data],
+		    #"Linhas Superiores Removidas" = Table.Skip(SINAPSE_Sheet,1),
+		    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(#"Linhas Superiores Removidas", [PromoteAllScalars=true]),
+		    #"Colunas Removidas" = Table.RemoveColumns(#"Cabeçalhos Promovidos",{"Cód Fornec", "Fornecedor"}),
+		    #"Tipo Alterado" = Table.TransformColumnTypes(#"Colunas Removidas",{{"Contrato", type text}, {"Projeto", type text}, {"Cod.Mat.", type text}, {"Descrição Material", type text}, {"Cod.Compl.", type text}, {"Equipe", type text}, {"Nome", type text}, {"Nº. Doc", type text}, {"Observação", type text}, {"Entrada", Int64.Type}, {"Saída", Int64.Type}, {"Tipo Movimento", type text}, {"Data Movimento", type date}, {"Usuario Baixa", type text}, {"Data Baixa", type date}, {"Hora Baixa", type time}, {"Usuario Criação", type text}, {"Data Criação", type date}, {"Hora Criação", type time}}),
+		    #"Linhas Filtradas" = Table.SelectRows(#"Tipo Alterado", each [#"Cod.Compl."] <> null and [#"Cod.Compl."] <> "-")
+		    /* #"Texto Aparado" = Table.TransformColumns(#"Linhas Filtradas",{{"Cod.Compl.", Text.Trim, type text}}),
+		    #"Linhas Classificadas" = Table.Sort(#"Linhas Filtradas",{{"Data Baixa", Order.Ascending}}) */
+		in
+		    #"Linhas Filtradas"
+		in
+		    Fonte
+	lineageTag: 9c5112cb-5d23-4763-830e-767f904c640e
+	queryGroup: 'Devolução Equip Aniel\Conferência de Movimento\Transformar Arquivo de Conferencia movimento\Consultas Auxiliares'
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Function
+
+expression 'Transformar o Arquivo de Exemplo (2)' =
+		let
+		    Fonte = Excel.Workbook(Parâmetro2, null, true),
+		    SINAPSE_Sheet = Fonte{[Item="SINAPSE",Kind="Sheet"]}[Data],
+		    #"Linhas Superiores Removidas" = Table.Skip(SINAPSE_Sheet,1),
+		    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(#"Linhas Superiores Removidas", [PromoteAllScalars=true]),
+		    #"Colunas Removidas" = Table.RemoveColumns(#"Cabeçalhos Promovidos",{"Cód Fornec", "Fornecedor"}),
+		    #"Tipo Alterado" = Table.TransformColumnTypes(#"Colunas Removidas",{{"Contrato", type text}, {"Projeto", type text}, {"Cod.Mat.", type text}, {"Descrição Material", type text}, {"Cod.Compl.", type text}, {"Equipe", type text}, {"Nome", type text}, {"Nº. Doc", type text}, {"Observação", type text}, {"Entrada", Int64.Type}, {"Saída", Int64.Type}, {"Tipo Movimento", type text}, {"Data Movimento", type date}, {"Usuario Baixa", type text}, {"Data Baixa", type date}, {"Hora Baixa", type time}, {"Usuario Criação", type text}, {"Data Criação", type date}, {"Hora Criação", type time}}),
+		    #"Linhas Filtradas" = Table.SelectRows(#"Tipo Alterado", each [#"Cod.Compl."] <> null and [#"Cod.Compl."] <> "-")
+		    /* #"Texto Aparado" = Table.TransformColumns(#"Linhas Filtradas",{{"Cod.Compl.", Text.Trim, type text}}),
+		    #"Linhas Classificadas" = Table.Sort(#"Linhas Filtradas",{{"Data Baixa", Order.Ascending}}) */
+		in
+		    #"Linhas Filtradas"
+	lineageTag: d63f9a86-1252-475c-96b3-52e5818d381b
+	queryGroup: 'Devolução Equip Aniel\Conferência de Movimento\Transformar Arquivo de Conferencia movimento\Consultas Auxiliares'
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+
+expression Parâmetro1 = #"Arquivo de Amostra" meta [IsParameterQuery=true, BinaryIdentifier=#"Arquivo de Amostra", Type="Binary", IsParameterQueryRequired=true]
+	lineageTag: 0800683d-5e81-4c74-9155-5aa779fe623a
+	queryGroup: 'Devolução Equip Aniel\Masteriais Aplicados & Retirados\Transformar Arquivo de Materiais Aplicados & Retirados\Consultas Auxiliares'
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Binary
+
+expression 'Arquivo de Amostra' =
+		let
+		    //Fonte = Folder.Files("C:\Users\proxx\OneDrive\Área de Trabalho\ZaaZ\Estoque\Materiais Aplicados & Retirados"),
+		    Fonte = Folder.Files(#"Pasta Raiz" & "\Materiais Aplicados & Retirados"),
+		    Navegação1 = Fonte{0}[Content]
+		in
+		    Navegação1
+	lineageTag: cbb60994-740e-4369-b2b4-3de4bf2533bf
+	queryGroup: 'Devolução Equip Aniel\Masteriais Aplicados & Retirados\Transformar Arquivo de Materiais Aplicados & Retirados\Consultas Auxiliares'
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Binary
+
+expression 'Transformar Arquivo' =
+		let
+		    Fonte = (Parâmetro1 as binary) => let
+		    Fonte = Excel.Workbook(Parâmetro1, null, true),
+		    SINAPSE_Sheet = Fonte{[Item="SINAPSE",Kind="Sheet"]}[Data],
+		    #"Linhas Superiores Removidas" = Table.Skip(SINAPSE_Sheet,2),
+		    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(#"Linhas Superiores Removidas", [PromoteAllScalars=true]),
+		    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"Contrato", type text}, {"Projeto", type text}, {"Cód. Equipe", Int64.Type}, {"Equipe", type text}, {"Município", type text}, {"Nº Cliente", Int64.Type}, {"CPF/CNPJ do Cliente", Int64.Type}, {"Nome do Cliente", type text}, {"CT Assinante", Int64.Type}, {"OS", type text}, {"Data Aplicação", type date}, {"Cód. Tipo Serv.", Int64.Type}, {"Desc. Tipo Serv.", type text}, {"Cód. Material", type text}, {"Material", type text}, {"Unidade", type text}, {"N° Serie", type text}, {"Valor Unit.", Currency.Type}, {"Qtde. Aplic.", Int64.Type}, {"Qtde. Remov.", Int64.Type}, {"R$ Tot. Aplicado", Currency.Type}, {"R$ Tot. Retirado.", Currency.Type}, {"Data Protocolo Interno", type any}, {"Nº Protocolo Interno", type any}, {"Data Protocolo Externo", type any}, {"Nº Protocolo Externo", type any}, {"Hora", type time}, {"Data", type date}, {"Usuário", type text}})
+		    /*#"Colunas Removidas" = Table.RemoveColumns(#"Tipo Alterado",{"CPF/CNPJ do Cliente", "Data Protocolo Interno", "Nº Protocolo Interno", "Data Protocolo Externo", "Nº Protocolo Externo", "CT Assinante", "Cód. Tipo Serv.", "Unidade", "Valor Unit.", "R$ Tot. Aplicado", "R$ Tot. Retirado.", "Setor / Departamento", "O.S. Cadastro", "DC                              "})*/
+		    //#"Linhas Filtradas" = Table.SelectRows(#"Valor Substituído", each [#"N° Serie"] <> "-" and [#"N° Serie"] <> null),
+		    /* #"Linhas Classificadas" = Table.Sort(#"Linhas Filtradas",{{"Data Aplicação", Order.Ascending}}),
+		    #"Texto Aparado" = Table.TransformColumns(#"Colunas Removidas",{{"N° Serie", Text.Trim, type text}}) */
+		in
+		    #"Tipo Alterado"
+		in
+		    Fonte
+	lineageTag: 55ab43b4-93b9-4e39-be88-3f47b96cdb99
+	queryGroup: 'Devolução Equip Aniel\Masteriais Aplicados & Retirados\Transformar Arquivo de Materiais Aplicados & Retirados\Consultas Auxiliares'
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Function
+
+expression 'Transformar o Arquivo de Exemplo' =
+		let
+		    Fonte = Excel.Workbook(Parâmetro1, null, true),
+		    SINAPSE_Sheet = Fonte{[Item="SINAPSE",Kind="Sheet"]}[Data],
+		    #"Linhas Superiores Removidas" = Table.Skip(SINAPSE_Sheet,2),
+		    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(#"Linhas Superiores Removidas", [PromoteAllScalars=true]),
+		    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"Contrato", type text}, {"Projeto", type text}, {"Cód. Equipe", Int64.Type}, {"Equipe", type text}, {"Município", type text}, {"Nº Cliente", Int64.Type}, {"CPF/CNPJ do Cliente", Int64.Type}, {"Nome do Cliente", type text}, {"CT Assinante", Int64.Type}, {"OS", type text}, {"Data Aplicação", type date}, {"Cód. Tipo Serv.", Int64.Type}, {"Desc. Tipo Serv.", type text}, {"Cód. Material", type text}, {"Material", type text}, {"Unidade", type text}, {"N° Serie", type text}, {"Valor Unit.", Currency.Type}, {"Qtde. Aplic.", Int64.Type}, {"Qtde. Remov.", Int64.Type}, {"R$ Tot. Aplicado", Currency.Type}, {"R$ Tot. Retirado.", Currency.Type}, {"Data Protocolo Interno", type any}, {"Nº Protocolo Interno", type any}, {"Data Protocolo Externo", type any}, {"Nº Protocolo Externo", type any}, {"Hora", type time}, {"Data", type date}, {"Usuário", type text}}),
+		    #"Colunas Removidas" = Table.RemoveColumns(#"Tipo Alterado",{"CPF/CNPJ do Cliente", "Data Protocolo Interno", "Nº Protocolo Interno", "Data Protocolo Externo", "Nº Protocolo Externo", "CT Assinante", "Cód. Tipo Serv.", "Valor Unit.", "R$ Tot. Aplicado", "R$ Tot. Retirado."})
+		in
+		    #"Colunas Removidas"
+	lineageTag: 245bcfb6-d469-4263-92c3-b236a0818095
+	queryGroup: 'Devolução Equip Aniel\Masteriais Aplicados & Retirados\Transformar Arquivo de Materiais Aplicados & Retirados\Consultas Auxiliares'
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+
+expression Parâmetro3 = #"Arquivo de Amostra (3)" meta [IsParameterQuery=true, BinaryIdentifier=#"Arquivo de Amostra (3)", Type="Binary", IsParameterQueryRequired=true]
+	lineageTag: 5afb6f35-8455-4cac-aa1b-973075c08e5e
+	queryGroup: 'RM&DM\Transformar Arquivo de f_RM&DM\Consultas Auxiliares'
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Binary
+
+expression 'Transformar o Arquivo de Exemplo (3)' =
+		let
+		    Fonte = Excel.Workbook(Parâmetro3, null, true),
+		    SINAPSE_Sheet = Fonte{[Item="SINAPSE",Kind="Sheet"]}[Data],
+		    #"Linhas Superiores Removidas" = Table.Skip(SINAPSE_Sheet,2),
+		    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(#"Linhas Superiores Removidas", [PromoteAllScalars=true])
+		in
+		    #"Cabeçalhos Promovidos"
+	lineageTag: b99f97f6-1216-4ca4-8a9b-29a42a256309
+	queryGroup: 'RM&DM\Transformar Arquivo de f_RM&DM'
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+
+expression 'Arquivo de Amostra (3)' =
+		let
+		  //Origem = Folder.Files("C:\Users\proxx\OneDrive\Área de Trabalho\PXX\Estoque\Saldo de Saídas RM&DM - Analítico"),
+		  Origem = Folder.Files(#"Pasta Raiz" & "\Saldo de Saídas RM&DM - Analítico"),
+		  #"Arquivos ocultos filtrados" = Table.SelectRows(Origem, each [Attributes]?[Hidden]? <> true),
+		    Navegação1 = #"Arquivos ocultos filtrados"{0}[Content]
+		in
+		    Navegação1
+	lineageTag: 616ebccc-86de-48b9-84c8-0ae6b39e3f0c
+	queryGroup: 'RM&DM\Transformar Arquivo de f_RM&DM\Consultas Auxiliares'
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Binary
+
+expression 'Transformar Arquivo (3)' =
+		let
+		    Fonte = (Parâmetro3 as binary) => let
+		    Fonte = Excel.Workbook(Parâmetro3, null, true),
+		    SINAPSE_Sheet = Fonte{[Item="SINAPSE",Kind="Sheet"]}[Data],
+		    #"Linhas Superiores Removidas" = Table.Skip(SINAPSE_Sheet,2),
+		    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(#"Linhas Superiores Removidas", [PromoteAllScalars=true])
+		in
+		    #"Cabeçalhos Promovidos"
+		in
+		    Fonte
+	mAttributes: [ FunctionQueryBinding = "{""exemplarFormulaName"":""Transformar o Arquivo de Exemplo (3)""}" ]
+	lineageTag: 67170bbd-3930-46ae-ab37-a400b534143a
+	queryGroup: 'RM&DM\Transformar Arquivo de f_RM&DM\Consultas Auxiliares'
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Function
+
+expression Parâmetro4 = #"Arquivo de Amostra (4)" meta [IsParameterQuery=true, BinaryIdentifier=#"Arquivo de Amostra (4)", Type="Binary", IsParameterQueryRequired=true]
+	lineageTag: f48fb1f5-bf32-431a-993e-99a1b31975e5
+	queryGroup: 'IF - Analítico\Transformar Arquivo de Inventário Fìsico - Analítico\Consultas Auxiliares'
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Binary
+
+expression 'Transformar o Arquivo de Exemplo (4)' =
+		let
+		    Fonte = Excel.Workbook(Parâmetro4, null, true),
+		    SINAPSE_Sheet = Fonte{[Item="SINAPSE",Kind="Sheet"]}[Data],
+		    #"Linhas Superiores Removidas" = Table.Skip(SINAPSE_Sheet,1),
+		    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(#"Linhas Superiores Removidas", [PromoteAllScalars=true]),
+		    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"Tipo Saldo", type text}, {"Contrato", type text}, {"Projeto", type text}, {"Sequencial", Int64.Type}, {"Data Final", type date}, {"Data Inicial", type date}, {"Observação", type text}, {"Cód. Custo", Int64.Type}, {"Descrição Centro Custo", type text}, {"Cod. Material", type text}, {"Descrição", type text}, {"unid.", type text}, {"Código Complementar", type text}, {"Código Complementar Aux.", type any}, {"Localização Real", type any}, {"Qtde. Declarada", Int64.Type}, {"Valor Unitario", type number}, {"Saldo Calculado", Int64.Type}, {"Diferença", Int64.Type}, {"Diferença Acumulada", type number}, {"Quantidade Cliente", Int64.Type}, {"Usuário", type text}, {"Data", type date}, {"Hora", type time}})
+		in
+		    #"Tipo Alterado"
+	lineageTag: e8269121-b3fe-4d89-9b2f-0eaed1054f63
+	queryGroup: 'IF - Analítico\Transformar Arquivo de Inventário Fìsico - Analítico'
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+
+expression 'Arquivo de Amostra (4)' =
+		let
+		  //Origem = Folder.Files("C:\Users\proxx\OneDrive\Área de Trabalho\PXX\Estoque\Inventário Fìsico - Analítico"),
+		    Origem = Folder.Files(#"Pasta Raiz" & "\Inventário Fìsico - Analítico"),
+		    Navegação1 = Origem{0}[Content]
+		in
+		  Navegação1
+	lineageTag: 0875618d-2648-4836-9af0-8034110d00ae
+	queryGroup: 'IF - Analítico\Transformar Arquivo de Inventário Fìsico - Analítico\Consultas Auxiliares'
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Binary
+
+expression 'Transformar Arquivo (4)' =
+		let
+		    Fonte = (Parâmetro4 as binary) => let
+		    Fonte = Excel.Workbook(Parâmetro4, null, true),
+		    SINAPSE_Sheet = Fonte{[Item="SINAPSE",Kind="Sheet"]}[Data],
+		    #"Linhas Superiores Removidas" = Table.Skip(SINAPSE_Sheet,1),
+		    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(#"Linhas Superiores Removidas", [PromoteAllScalars=true]),
+		    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"Tipo Saldo", type text}, {"Contrato", type text}, {"Projeto", type text}, {"Sequencial", Int64.Type}, {"Data Final", type date}, {"Data Inicial", type date}, {"Observação", type text}, {"Cód. Custo", Int64.Type}, {"Descrição Centro Custo", type text}, {"Cod. Material", type text}, {"Descrição", type text}, {"unid.", type text}, {"Código Complementar", type text}, {"Código Complementar Aux.", type any}, {"Localização Real", type any}, {"Qtde. Declarada", Int64.Type}, {"Valor Unitario", type number}, {"Saldo Calculado", Int64.Type}, {"Diferença", Int64.Type}, {"Diferença Acumulada", type number}, {"Quantidade Cliente", Int64.Type}, {"Usuário", type text}, {"Data", type date}, {"Hora", type time}})
+		in
+		    #"Tipo Alterado"
+		in
+		    Fonte
+	mAttributes: [ FunctionQueryBinding = "{""exemplarFormulaName"":""Transformar o Arquivo de Exemplo (4)""}" ]
+	lineageTag: 2becdaa4-0a5c-42c8-ba7f-84b2b045208d
+	queryGroup: 'IF - Analítico\Transformar Arquivo de Inventário Fìsico - Analítico\Consultas Auxiliares'
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Function
+
+expression Parâmetro5 = #"Arquivo de Amostra (5)" meta [IsParameterQuery=true, BinaryIdentifier=#"Arquivo de Amostra (5)", Type="Binary", IsParameterQueryRequired=true]
+	lineageTag: dcfcb90d-e333-4d2a-96e6-4c4ce6b45d9c
+	queryGroup: 'Transformar Arquivo de Conversão de Produtos\Consultas Auxiliares'
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Binary
+
+expression 'Transformar o Arquivo de Exemplo (5)' =
+		let
+		    Fonte = Excel.Workbook(Parâmetro5, null, true),
+		    SINAPSE_Sheet = Fonte{[Item="SINAPSE",Kind="Sheet"]}[Data],
+		    #"Linhas Superiores Removidas" = Table.Skip(SINAPSE_Sheet,1),
+		    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(#"Linhas Superiores Removidas", [PromoteAllScalars=true])
+		in
+		    #"Cabeçalhos Promovidos"
+	lineageTag: 852527db-de30-4800-9306-cde8a3ea7b63
+	queryGroup: 'Transformar Arquivo de Conversão de Produtos'
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+
+expression 'Arquivo de Amostra (5)' =
+		let
+		  // Origem = Folder.Files("C:\Users\proxx\OneDrive\Área de Trabalho\PXX\Estoque\Conversão de Produtos"),
+		  Origem = Folder.Files(#"Pasta Raiz" & "\Conversão de Produtos"),
+		  #"Arquivos ocultos filtrados" = Table.SelectRows(Origem, each [Attributes]?[Hidden]? <> true),
+		    Navegação1 = #"Arquivos ocultos filtrados"{0}[Content]
+		in
+		  Navegação1
+	lineageTag: fc4770d8-047c-4731-9a44-fb392c3e0851
+	queryGroup: 'Transformar Arquivo de Conversão de Produtos\Consultas Auxiliares'
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Binary
+
+expression 'Transformar Arquivo (5)' =
+		let
+		    Fonte = (Parâmetro5 as binary) => let
+		    Fonte = Excel.Workbook(Parâmetro5, null, true),
+		    SINAPSE_Sheet = Fonte{[Item="SINAPSE",Kind="Sheet"]}[Data],
+		    #"Linhas Superiores Removidas" = Table.Skip(SINAPSE_Sheet,1),
+		    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(#"Linhas Superiores Removidas", [PromoteAllScalars=true])
+		in
+		    #"Cabeçalhos Promovidos"
+		in
+		    Fonte
+	mAttributes: [ FunctionQueryBinding = "{""exemplarFormulaName"":""Transformar o Arquivo de Exemplo (5)""}" ]
+	lineageTag: 3b0a677a-e809-49c1-bb97-d7aadea5da13
+	queryGroup: 'Transformar Arquivo de Conversão de Produtos\Consultas Auxiliares'
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Function
+
+expression Parâmetro6 = #"Arquivo de Amostra (6)" meta [IsParameterQuery=true, BinaryIdentifier=#"Arquivo de Amostra (6)", Type="Binary", IsParameterQueryRequired=true]
+	lineageTag: ed61dbc6-874d-4d24-b394-52559bbbc0a9
+	queryGroup: 'Transformar Arquivo de Solicitações\Consultas Auxiliares'
+
+	annotation PBI_ResultType = Binary
+
+expression 'Transformar o Arquivo de Exemplo (6)' = ```
+		let
+		    Fonte = Excel.Workbook(Parâmetro6, null, true),
+		    Sheet1_Sheet = Fonte{[Item="Sheet1",Kind="Sheet"]}[Data],
+		    #"Linhas Superiores Removidas" = Table.Skip(Sheet1_Sheet,1),
+		    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(#"Linhas Superiores Removidas", [PromoteAllScalars=true]),
+		
+		    #"Linhas Classificadas" = Table.Sort(#"Cabeçalhos Promovidos",{{"Data/Hora Encerramento", Order.Descending}}),
+		    
+		    // Proteção da palavra COMBO
+		    fixCOMBO1 = Table.ReplaceValue(#"Linhas Classificadas","COMBO","PACOTE",Replacer.ReplaceText,{"Plano/Produto"}),
+		    fixCombo2 = Table.ReplaceValue(fixCOMBO1,"Combo","Pacote",Replacer.ReplaceText,{"Plano/Produto"}),
+		    fixcombo3 = Table.ReplaceValue(fixCombo2,"combo","pacote",Replacer.ReplaceText,{"Plano/Produto"}),
+		    
+		    // PROTEGER A PALAVRA MEGANET
+		    #"Proteger meganet min" = Table.ReplaceValue(fixcombo3, "meganet", "#MGNET#", Replacer.ReplaceText, {"Plano/Produto"}),
+		    #"Proteger MegaNet misto" = Table.ReplaceValue(#"Proteger meganet min", "MegaNet", "#MGNET#", Replacer.ReplaceText, {"Plano/Produto"}),
+		    #"Proteger MEGANET mai" = Table.ReplaceValue(#"Proteger MegaNet misto", "MEGANET", "#MGNET#", Replacer.ReplaceText, {"Plano/Produto"}),
+		
+		    // SUBSTITUIÇÕES 
+		    #"Substituir -Mega" = Table.ReplaceValue(#"Proteger MEGANET mai", "-Mega", "MB", Replacer.ReplaceText, {"Plano/Produto"}),
+		    #"Substituir espaco Mega" = Table.ReplaceValue(#"Substituir -Mega", " Mega", "MB", Replacer.ReplaceText, {"Plano/Produto"}),
+		    #"Substituir Mega" = Table.ReplaceValue(#"Substituir espaco Mega", "Mega", "MB", Replacer.ReplaceText, {"Plano/Produto"}),
+		    #"Substituir espaco Megao" = Table.ReplaceValue(#"Substituir Mega", " MEGA", "MB", Replacer.ReplaceText, {"Plano/Produto"}),
+		    #"Substituir Megao" = Table.ReplaceValue(#"Substituir espaco Megao", "MEGA", "MB", Replacer.ReplaceText, {"Plano/Produto"}),
+		    #"Substituir espaco mb" = Table.ReplaceValue(#"Substituir Megao", " mb", "MB", Replacer.ReplaceText, {"Plano/Produto"}),
+		    #"Substituir mb" = Table.ReplaceValue(#"Substituir espaco mb", "mb", "MB", Replacer.ReplaceText, {"Plano/Produto"}),
+		
+		    #"Valor Substituído0" = Table.ReplaceValue(#"Substituir mb"," Mb","MB",Replacer.ReplaceText,{"Plano/Produto"}),
+		    #"Valor Substituído0.1" = Table.ReplaceValue(#"Valor Substituído0","Mb","MB",Replacer.ReplaceText,{"Plano/Produto"}),
+		    #"Valor Substituído0.2" = Table.ReplaceValue(#"Valor Substituído0.1"," Mbps","MB",Replacer.ReplaceText,{"Plano/Produto"}),
+		    #"Valor Substituído0.3" = Table.ReplaceValue(#"Valor Substituído0.2","Mbps","MB",Replacer.ReplaceText,{"Plano/Produto"}),
+		    #"Valor Substituído0.4" = Table.ReplaceValue(#"Valor Substituído0.3"," MB","MB",Replacer.ReplaceText,{"Plano/Produto"}),
+		    #"Valor Substituído1" = Table.ReplaceValue(#"Valor Substituído0.4"," MBPS","MB",Replacer.ReplaceText,{"Plano/Produto"}),
+		    #"Valor Substituído2" = Table.ReplaceValue(#"Valor Substituído1","MBPS","MB",Replacer.ReplaceText,{"Plano/Produto"}),
+		    #"Valor Substituído3" = Table.ReplaceValue(#"Valor Substituído2"," MEGAS","MB",Replacer.ReplaceText,{"Plano/Produto"}),
+		    #"Valor Substituído4" = Table.ReplaceValue(#"Valor Substituído3","MEGAS","MB",Replacer.ReplaceText,{"Plano/Produto"}),
+		    #"Valor Substituído5" = Table.ReplaceValue( #"Valor Substituído4","1GBPS","1000MB",Replacer.ReplaceText,{"Plano/Produto"}),
+		    #"Valor Substituído6" = Table.ReplaceValue( #"Valor Substituído5","1 GBPS","1000MB",Replacer.ReplaceText,{"Plano/Produto"}),
+		    #"Valor Substituído7" = Table.ReplaceValue(#"Valor Substituído6","1GB","1000MB",Replacer.ReplaceText,{"Plano/Produto"}),
+		    #"Valor Substituído7.1" = Table.ReplaceValue(#"Valor Substituído7","1GB","1000MB",Replacer.ReplaceText,{"Plano/Produto"}),
+		    #"Valor Substituído7.2" = Table.ReplaceValue(#"Valor Substituído7.1","1 GIGA","1000MB",Replacer.ReplaceText,{"Plano/Produto"}),
+		    #"Valor Substituído7.3" = Table.ReplaceValue(#"Valor Substituído7.2","1GIGA","1000MB",Replacer.ReplaceText,{"Plano/Produto"}),
+		    #"Valor Substituído8" = Table.ReplaceValue(#"Valor Substituído7.3","1 GB","1000MB",Replacer.ReplaceText,{"Plano/Produto"}),
+		    #"Valor Substituído9" = Table.ReplaceValue( #"Valor Substituído8","2GBPS","2000MB",Replacer.ReplaceText,{"Plano/Produto"}),
+		    #"Valor Substituído10" = Table.ReplaceValue( #"Valor Substituído9","2 GBPS","2000MB",Replacer.ReplaceText,{"Plano/Produto"}),
+		    #"Valor Substituído11" = Table.ReplaceValue(#"Valor Substituído10","2GB","2000MB",Replacer.ReplaceText,{"Plano/Produto"}),
+		    #"Valor Substituído12" = Table.ReplaceValue(#"Valor Substituído11","2 GB","2000MB",Replacer.ReplaceText,{"Plano/Produto"}),
+		    #"Valor Substituído13" = Table.ReplaceValue(#"Valor Substituído12","500+50","550MB",Replacer.ReplaceText,{"Plano/Produto"}),
+		    
+		    // --- ALTERAÇÕES COMEÇAM AQUI ---
+		    
+		    // Adicionada a condição if Text.Contains para só extrair se tiver "MB", caso contrário retorna null
+		
+		    //#"Texto Inserido Antes do Delimitador" = Table.AddColumn(#"Valor Substituído13", "Velocidade do Plano", each if Text.Contains([Plano/Produto], "MB") then Text.BeforeDelimiter([Plano/Produto], "MB") else null, type text),
+		    #"Texto Inserido Antes do Delimitador" = Table.AddColumn(#"Valor Substituído13", "Velocidade do Plano", each if [#"Plano/Produto"] = null or [#"Plano/Produto"] = "" then null else if Text.Contains([#"Plano/Produto"], "MB") then Text.BeforeDelimiter([#"Plano/Produto"], "MB") else null, type text),
+		    
+		    #"Colunas Reordenadas1" = Table.ReorderColumns(#"Texto Inserido Antes do Delimitador",{"Contrato", "Projeto", "Nº. Ordem Serviço", "Matrícula do Técnico", "Identificação do Cliente", "Nº Cliente", "Status", "Tipo de Serviço", "Subtipo de Serviço", "Grupo Área", "Data/Hora Criação", "Descrição do Encerramento", "Usuário do Encerramento", "Data/Hora Encerramento", "Natureza", "Plano/Produto", "Velocidade do Plano", "Observação do Técnico"}),
+		    
+		    // Adicionado "if _ <> null" nas 3 etapas finais para que o Power Query não dê erro ao tentar extrair/aparar valores que estão em branco (null)
+		    #"Últimos caracteres extraídos" = Table.TransformColumns(#"Colunas Reordenadas1", {{"Velocidade do Plano", each if _ <> null then Text.End(_, 5) else null, type text}}),
+		    SubstituindoChar = Table.TransformColumns(#"Últimos caracteres extraídos", {{"Velocidade do Plano", each if _ <> null then Text.Select(_, {"0".."9"}) else null, type text}}),
+		    #"Texto Aparado" = Table.TransformColumns(SubstituindoChar,{{"Velocidade do Plano", each if _ <> null then Text.Trim(_) else null, type text}}),
+		    #"Coluna Condicional Adicionada" = Table.AddColumn(
+		    #"Texto Aparado", "Roteadores", 
+		    each if [#"Plano/Produto"] <> null then
+		        if 
+		            Text.Contains([#"Plano/Produto"], "1R") then "1R" 
+		        else if 
+		            Text.Contains([#"Plano/Produto"], "2R") then "2R" 
+		        else if 
+		            Text.Contains([#"Plano/Produto"], "3R") then "3R" 
+		        else if 
+		            Text.Contains([#"Plano/Produto"], "4R") then "4R" 
+		        else 
+		            "*R"
+		    else "PLANO EM BRANCO"
+		    )
+		in
+		    #"Coluna Condicional Adicionada"
+		```
+	lineageTag: 701f4843-02c9-40de-ad1c-4115883a6ee5
+	queryGroup: 'Transformar Arquivo de Solicitações'
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+
+expression 'Arquivo de Amostra (6)' =
+		let
+		  Origem = Folder.Files("C:\Users\proxx\OneDrive\Área de Trabalho\PXX\Estoque\Solicitações"),
+		    Navegação1 = Origem{0}[Content]
+		in
+		  Navegação1
+	lineageTag: 6002294a-d0e4-4c36-9798-bbb9d0380477
+	queryGroup: 'Transformar Arquivo de Solicitações\Consultas Auxiliares'
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Binary
+
+expression 'Transformar Arquivo (6)' = ```
+		let
+		    Fonte = (Parâmetro6 as binary) => let
+		    Fonte = Excel.Workbook(Parâmetro6, null, true),
+		    Sheet1_Sheet = Fonte{[Item="Sheet1",Kind="Sheet"]}[Data],
+		    #"Linhas Superiores Removidas" = Table.Skip(Sheet1_Sheet,1),
+		    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(#"Linhas Superiores Removidas", [PromoteAllScalars=true]),
+		
+		    #"Linhas Classificadas" = Table.Sort(#"Cabeçalhos Promovidos",{{"Data/Hora Encerramento", Order.Descending}}),
+		    
+		    // Proteção da palavra COMBO
+		    fixCOMBO1 = Table.ReplaceValue(#"Linhas Classificadas","COMBO","PACOTE",Replacer.ReplaceText,{"Plano/Produto"}),
+		    fixCombo2 = Table.ReplaceValue(fixCOMBO1,"Combo","Pacote",Replacer.ReplaceText,{"Plano/Produto"}),
+		    fixcombo3 = Table.ReplaceValue(fixCombo2,"combo","pacote",Replacer.ReplaceText,{"Plano/Produto"}),
+		    
+		    // PROTEGER A PALAVRA MEGANET
+		    #"Proteger meganet min" = Table.ReplaceValue(fixcombo3, "meganet", "#MGNET#", Replacer.ReplaceText, {"Plano/Produto"}),
+		    #"Proteger MegaNet misto" = Table.ReplaceValue(#"Proteger meganet min", "MegaNet", "#MGNET#", Replacer.ReplaceText, {"Plano/Produto"}),
+		    #"Proteger MEGANET mai" = Table.ReplaceValue(#"Proteger MegaNet misto", "MEGANET", "#MGNET#", Replacer.ReplaceText, {"Plano/Produto"}),
+		
+		    // SUBSTITUIÇÕES 
+		    #"Substituir -Mega" = Table.ReplaceValue(#"Proteger MEGANET mai", "-Mega", "MB", Replacer.ReplaceText, {"Plano/Produto"}),
+		    #"Substituir espaco Mega" = Table.ReplaceValue(#"Substituir -Mega", " Mega", "MB", Replacer.ReplaceText, {"Plano/Produto"}),
+		    #"Substituir Mega" = Table.ReplaceValue(#"Substituir espaco Mega", "Mega", "MB", Replacer.ReplaceText, {"Plano/Produto"}),
+		    #"Substituir espaco Megao" = Table.ReplaceValue(#"Substituir Mega", " MEGA", "MB", Replacer.ReplaceText, {"Plano/Produto"}),
+		    #"Substituir Megao" = Table.ReplaceValue(#"Substituir espaco Megao", "MEGA", "MB", Replacer.ReplaceText, {"Plano/Produto"}),
+		    #"Substituir espaco mb" = Table.ReplaceValue(#"Substituir Megao", " mb", "MB", Replacer.ReplaceText, {"Plano/Produto"}),
+		    #"Substituir mb" = Table.ReplaceValue(#"Substituir espaco mb", "mb", "MB", Replacer.ReplaceText, {"Plano/Produto"}),
+		
+		    #"Valor Substituído0" = Table.ReplaceValue(#"Substituir mb"," Mb","MB",Replacer.ReplaceText,{"Plano/Produto"}),
+		    #"Valor Substituído0.1" = Table.ReplaceValue(#"Valor Substituído0","Mb","MB",Replacer.ReplaceText,{"Plano/Produto"}),
+		    #"Valor Substituído0.2" = Table.ReplaceValue(#"Valor Substituído0.1"," Mbps","MB",Replacer.ReplaceText,{"Plano/Produto"}),
+		    #"Valor Substituído0.3" = Table.ReplaceValue(#"Valor Substituído0.2","Mbps","MB",Replacer.ReplaceText,{"Plano/Produto"}),
+		    #"Valor Substituído0.4" = Table.ReplaceValue(#"Valor Substituído0.3"," MB","MB",Replacer.ReplaceText,{"Plano/Produto"}),
+		    #"Valor Substituído1" = Table.ReplaceValue(#"Valor Substituído0.4"," MBPS","MB",Replacer.ReplaceText,{"Plano/Produto"}),
+		    #"Valor Substituído2" = Table.ReplaceValue(#"Valor Substituído1","MBPS","MB",Replacer.ReplaceText,{"Plano/Produto"}),
+		    #"Valor Substituído3" = Table.ReplaceValue(#"Valor Substituído2"," MEGAS","MB",Replacer.ReplaceText,{"Plano/Produto"}),
+		    #"Valor Substituído4" = Table.ReplaceValue(#"Valor Substituído3","MEGAS","MB",Replacer.ReplaceText,{"Plano/Produto"}),
+		    #"Valor Substituído5" = Table.ReplaceValue( #"Valor Substituído4","1GBPS","1000MB",Replacer.ReplaceText,{"Plano/Produto"}),
+		    #"Valor Substituído6" = Table.ReplaceValue( #"Valor Substituído5","1 GBPS","1000MB",Replacer.ReplaceText,{"Plano/Produto"}),
+		    #"Valor Substituído7" = Table.ReplaceValue(#"Valor Substituído6","1GB","1000MB",Replacer.ReplaceText,{"Plano/Produto"}),
+		    #"Valor Substituído7.1" = Table.ReplaceValue(#"Valor Substituído7","1GB","1000MB",Replacer.ReplaceText,{"Plano/Produto"}),
+		    #"Valor Substituído7.2" = Table.ReplaceValue(#"Valor Substituído7.1","1 GIGA","1000MB",Replacer.ReplaceText,{"Plano/Produto"}),
+		    #"Valor Substituído7.3" = Table.ReplaceValue(#"Valor Substituído7.2","1GIGA","1000MB",Replacer.ReplaceText,{"Plano/Produto"}),
+		    #"Valor Substituído8" = Table.ReplaceValue(#"Valor Substituído7.3","1 GB","1000MB",Replacer.ReplaceText,{"Plano/Produto"}),
+		    #"Valor Substituído9" = Table.ReplaceValue( #"Valor Substituído8","2GBPS","2000MB",Replacer.ReplaceText,{"Plano/Produto"}),
+		    #"Valor Substituído10" = Table.ReplaceValue( #"Valor Substituído9","2 GBPS","2000MB",Replacer.ReplaceText,{"Plano/Produto"}),
+		    #"Valor Substituído11" = Table.ReplaceValue(#"Valor Substituído10","2GB","2000MB",Replacer.ReplaceText,{"Plano/Produto"}),
+		    #"Valor Substituído12" = Table.ReplaceValue(#"Valor Substituído11","2 GB","2000MB",Replacer.ReplaceText,{"Plano/Produto"}),
+		    #"Valor Substituído13" = Table.ReplaceValue(#"Valor Substituído12","500+50","550MB",Replacer.ReplaceText,{"Plano/Produto"}),
+		    
+		    // --- ALTERAÇÕES COMEÇAM AQUI ---
+		    
+		    // Adicionada a condição if Text.Contains para só extrair se tiver "MB", caso contrário retorna null
+		
+		    //#"Texto Inserido Antes do Delimitador" = Table.AddColumn(#"Valor Substituído13", "Velocidade do Plano", each if Text.Contains([Plano/Produto], "MB") then Text.BeforeDelimiter([Plano/Produto], "MB") else null, type text),
+		    #"Texto Inserido Antes do Delimitador" = Table.AddColumn(#"Valor Substituído13", "Velocidade do Plano", each if [#"Plano/Produto"] = null or [#"Plano/Produto"] = "" then null else if Text.Contains([#"Plano/Produto"], "MB") then Text.BeforeDelimiter([#"Plano/Produto"], "MB") else null, type text),
+		    
+		    #"Colunas Reordenadas1" = Table.ReorderColumns(#"Texto Inserido Antes do Delimitador",{"Contrato", "Projeto", "Nº. Ordem Serviço", "Matrícula do Técnico", "Identificação do Cliente", "Nº Cliente", "Status", "Tipo de Serviço", "Subtipo de Serviço", "Grupo Área", "Data/Hora Criação", "Descrição do Encerramento", "Usuário do Encerramento", "Data/Hora Encerramento", "Natureza", "Plano/Produto", "Velocidade do Plano", "Observação do Técnico"}),
+		    
+		    // Adicionado "if _ <> null" nas 3 etapas finais para que o Power Query não dê erro ao tentar extrair/aparar valores que estão em branco (null)
+		    #"Últimos caracteres extraídos" = Table.TransformColumns(#"Colunas Reordenadas1", {{"Velocidade do Plano", each if _ <> null then Text.End(_, 5) else null, type text}}),
+		    SubstituindoChar = Table.TransformColumns(#"Últimos caracteres extraídos", {{"Velocidade do Plano", each if _ <> null then Text.Select(_, {"0".."9"}) else null, type text}}),
+		    #"Texto Aparado" = Table.TransformColumns(SubstituindoChar,{{"Velocidade do Plano", each if _ <> null then Text.Trim(_) else null, type text}}),
+		    #"Coluna Condicional Adicionada" = Table.AddColumn(
+		    #"Texto Aparado", "Roteadores", 
+		    each if [#"Plano/Produto"] <> null then
+		        if 
+		            Text.Contains([#"Plano/Produto"], "1R") then "1R" 
+		        else if 
+		            Text.Contains([#"Plano/Produto"], "2R") then "2R" 
+		        else if 
+		            Text.Contains([#"Plano/Produto"], "3R") then "3R" 
+		        else if 
+		            Text.Contains([#"Plano/Produto"], "4R") then "4R" 
+		        else 
+		            "*R"
+		    else "PLANO EM BRANCO"
+		    )
+		in
+		    #"Coluna Condicional Adicionada"
+		in
+		    Fonte
+		```
+	mAttributes: [ FunctionQueryBinding = "{""exemplarFormulaName"":""Transformar o Arquivo de Exemplo (6)""}" ]
+	lineageTag: 1391698c-bf1a-4827-8fe6-e4714d9fa851
+	queryGroup: 'Transformar Arquivo de Solicitações\Consultas Auxiliares'
+
+	annotation PBI_ResultType = Function
+

@@ -1,0 +1,284 @@
+table f_RM&DM
+	lineageTag: 29013174-89e7-45a6-9485-6ed9917ea508
+
+	measure _Qtd_Requisitada =
+			
+			
+			CALCULATE(
+			    SUM('f_RM&DM'[Quantidade Movimentada]),
+			    FILTER('f_RM&DM', 'f_RM&DM'[Tipo Movimento] = "Requisição de Material")
+			)
+		formatString: #,0
+		lineageTag: db762927-6db0-43c7-bce0-f8cf652bd179
+
+	measure _Qtd_Devolvida = ```
+			
+			
+			CALCULATE(
+			    SUM('f_RM&DM'[Quantidade Movimentada]),
+			    FILTER('f_RM&DM', 'f_RM&DM'[Tipo Movimento] = "Devolução de Material")
+			)
+			
+			```
+		formatString: #,0
+		lineageTag: e9b5688a-4edc-412c-8244-f6a175926b2e
+
+	measure _Qtd_Requisitada_Liq =
+			
+			
+			VAR Qtd_Liq = [_Qtd_Requisitada]-[_Qtd_Devolvida]
+			RETURN
+			
+			IF(Qtd_Liq < 0, 0, Qtd_Liq)
+		formatString: 0
+		lineageTag: 4f59e29d-dbe0-4369-ae28-4d467d4663a1
+
+	measure _ConsumoMédioMêsRequisição = ```
+			
+			    VAR TabelaFiltrada = 
+			        CALCULATETABLE(
+			            DISTINCT(
+			                SELECTCOLUMNS(
+			                    'f_RM&DM',
+			                    "MesRef", DATE(YEAR('f_RM&DM'[data Movimentação]), 
+			                                   MONTH('f_RM&DM'[data Movimentação]), 1)
+			                )
+			            )
+			        )  
+			    VAR _MesesFiltrados = COUNTROWS(TabelaFiltrada)
+			    --VAR qtdAplic = SUM(f_MateriaisAplicados[Qtde. Aplic.])
+			
+			    RETURN
+			    IF(
+			        _MesesFiltrados = 0,
+			        BLANK(),
+			        DIVIDE([_Qtd_Requisitada], _MesesFiltrados, 0)
+			    )
+			```
+		lineageTag: 0d14ca56-6c7f-40db-8539-9741722273d9
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure _Qtd_Requisitada_MêsAnterior =
+			
+			
+			CALCULATE(
+			    [_Qtd_Requisitada],
+			    DATEADD('d_Calendário'[Data], -1, MONTH)
+			)
+		formatString: #,0
+		lineageTag: 51b95deb-5946-4a72-812e-ac363bd89279
+
+	measure _DevoluçãoMédiaMês = ```
+			
+			    VAR TabelaFiltrada = 
+			        CALCULATETABLE(
+			            DISTINCT(
+			                SELECTCOLUMNS(
+			                    'f_RM&DM',
+			                    "MesRef", DATE(YEAR('f_RM&DM'[data Movimentação]), 
+			                                   MONTH('f_RM&DM'[data Movimentação]), 1)
+			                )
+			            )
+			        )  
+			    VAR _MesesFiltrados = COUNTROWS(TabelaFiltrada)
+			    RETURN
+			    IF(
+			        _MesesFiltrados = 0,
+			        BLANK(),
+			        DIVIDE([_Qtd_Devolvida], _MesesFiltrados, 0)
+			    )
+			```
+		lineageTag: 13fe453a-e17a-4e76-abd6-fecd723779da
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure _Qtd_Devolviva_MêsAnterior =
+			
+			
+			CALCULATE(
+			    [_Qtd_Devolvida],
+			    DATEADD('d_Calendário'[Data], -1, MONTH)
+			)
+		formatString: #,0
+		lineageTag: 096dea6f-225a-44a8-b0d5-dfad42997d2d
+
+	measure _Qtd_Devolvida_REAP+NOVO = ```
+			
+			
+			CALCULATE(
+			    SUM('f_RM&DM'[Quantidade Movimentada]),
+			    FILTER('f_RM&DM', 'f_RM&DM'[Tipo Movimento] = "Devolução de Material" &&
+			    'f_RM&DM'[Condição] IN {"NOVO", "REAPROVEITADO"}
+			    
+			    )
+			)
+			
+			```
+		formatString: 0
+		lineageTag: c525fce6-d673-417e-a843-a07f352e94aa
+
+	column Contrato
+		dataType: string
+		lineageTag: 12dbae1b-fd5d-4405-8786-6c9842191c72
+		summarizeBy: none
+		sourceColumn: Contrato
+
+		annotation SummarizationSetBy = Automatic
+
+	column Projeto
+		dataType: string
+		lineageTag: b1a22325-2307-4b3d-b3b8-64f005e0851b
+		summarizeBy: none
+		sourceColumn: Projeto
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Nº. Documento'
+		dataType: string
+		lineageTag: e63414fe-09b2-40b0-b287-d4df1316cacb
+		summarizeBy: none
+		sourceColumn: Nº. Documento
+
+		annotation SummarizationSetBy = Automatic
+
+	column Matrícula
+		dataType: string
+		lineageTag: 91123d94-aa06-4848-ade0-b4c6b8a2b30e
+		summarizeBy: none
+		sourceColumn: Matrícula
+
+		annotation SummarizationSetBy = Automatic
+
+	column Equipe
+		dataType: string
+		lineageTag: 2e952185-2c5e-44fd-86cf-e6cdd3fb5003
+		summarizeBy: none
+		sourceColumn: Equipe
+
+		annotation SummarizationSetBy = Automatic
+
+	column Código
+		dataType: int64
+		formatString: 0
+		lineageTag: 1ba980f1-408d-4bf0-8404-195c1c4f486b
+		summarizeBy: sum
+		sourceColumn: Código
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Centro de Custo'
+		dataType: string
+		lineageTag: c4ec015b-914e-412a-9f11-51cfe56b3693
+		summarizeBy: none
+		sourceColumn: Centro de Custo
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'data Movimentação'
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 764d084d-6243-41bd-b8b2-26dd681318fe
+		summarizeBy: none
+		sourceColumn: data Movimentação
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Código_1
+		dataType: string
+		lineageTag: ec7ff61d-3a6a-495d-a782-9e601c47e98a
+		summarizeBy: none
+		sourceColumn: Código_1
+
+		annotation SummarizationSetBy = Automatic
+
+	column Material
+		dataType: string
+		lineageTag: 882f1b69-2b87-4f94-ae45-9a440eaddd69
+		summarizeBy: none
+		sourceColumn: Material
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Unidade Medida'
+		dataType: string
+		lineageTag: b0ab823b-0000-4480-87e2-02fa8d71d602
+		summarizeBy: none
+		sourceColumn: Unidade Medida
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tipo Movimento'
+		dataType: string
+		lineageTag: 01c7aba2-6953-48c0-bca2-a6cd2f7ddf8a
+		summarizeBy: none
+		sourceColumn: Tipo Movimento
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Quantidade Movimentada'
+		dataType: int64
+		formatString: #,0
+		lineageTag: ba528015-9bce-44b1-83b0-719ab3d6cf81
+		summarizeBy: sum
+		sourceColumn: Quantidade Movimentada
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'd_DE-PARA-TECNOLOGIA.CATEGORIA'
+		dataType: string
+		lineageTag: 581a113c-c7d2-483e-856b-2f61c709de40
+		summarizeBy: none
+		sourceColumn: d_DE-PARA-TECNOLOGIA.CATEGORIA
+
+		annotation SummarizationSetBy = Automatic
+
+	column Condição
+		dataType: string
+		lineageTag: 8148cf0f-5311-4eab-8122-edd17ac31a70
+		summarizeBy: none
+		sourceColumn: Condição
+
+		annotation SummarizationSetBy = Automatic
+
+	partition f_RM&DM = m
+		mode: import
+		queryGroup: 'Tabelas Principais'
+		source = ```
+				let
+				  Origem = Folder.Files("C:\Users\proxx\OneDrive\Área de Trabalho\PXX\Estoque\Saldo de Saídas RM&DM - Analítico"),
+				  #"Arquivos ocultos filtrados" = Table.SelectRows(Origem, each [Attributes]?[Hidden]? <> true),
+				    #"Arquivos Ocultos Filtrados1" = Table.SelectRows(#"Arquivos ocultos filtrados", each [Attributes]?[Hidden]? <> true),
+				    #"Invocar Função Personalizada1" = Table.AddColumn(#"Arquivos Ocultos Filtrados1", "Transformar Arquivo (3)", each #"Transformar Arquivo (3)"([Content])),
+				    #"Colunas Renomeadas1" = Table.RenameColumns(#"Invocar Função Personalizada1", {"Name", "Nome da Origem"}),
+				    #"Outras Colunas Removidas1" = Table.SelectColumns(#"Colunas Renomeadas1", {"Nome da Origem", "Transformar Arquivo (3)"}),
+				    #"Coluna de Tabela Expandida1" = Table.ExpandTableColumn(#"Outras Colunas Removidas1", "Transformar Arquivo (3)", Table.ColumnNames(#"Transformar Arquivo (3)"(#"Arquivo de Amostra (3)"))),
+				    #"Colunas Removidas" = Table.RemoveColumns(#"Coluna de Tabela Expandida1",{"Nome da Origem"}),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Colunas Removidas",{{"Contrato", type text}, {"Projeto", type text}, {"Nº. Documento", type text}, {"Matrícula", type text}, {"Equipe", type text}, {"Código", Int64.Type}, {"Centro de Custo", type text}, {"data Movimentação", type date}, {"Código_1", type text}, {"Material", type text}, {"Unidade Medida", type text}, {"Tipo Movimento", type text}}),
+				    #"Consultas Mescladas" = Table.NestedJoin(#"Tipo Alterado", {"Material"}, #"d_DE-PARA-TECNOLOGIA", {"EQUIPAMENTO"}, "d_DE-PARA-TECNOLOGIA", JoinKind.LeftOuter),
+				    #"d_DE-PARA-TECNOLOGIA Expandido" = Table.ExpandTableColumn(#"Consultas Mescladas", "d_DE-PARA-TECNOLOGIA", {"CATEGORIA"}, {"d_DE-PARA-TECNOLOGIA.CATEGORIA"}),
+				    #"Valor Substituído" = Table.ReplaceValue(#"d_DE-PARA-TECNOLOGIA Expandido",null,"NÃO MAPEADO",Replacer.ReplaceValue,{"d_DE-PARA-TECNOLOGIA.CATEGORIA"}),
+				    // Criando a coluna de Condição Aplicada (Lógica 1)
+				    Condição = Table.AddColumn(#"Valor Substituído", "Condição", each 
+				    let 
+				        Cod = Text.Upper(Text.From([Material])) 
+				    in
+				        if Text.Contains(Cod, "DEF-") or Text.Contains(Cod, "DET-") then "DEFEITO"
+				        else if Text.Contains(Cod, "RET-") then "RETIRADO"
+				        else if Text.Contains(Cod, "REAP-") or Text.Contains(Cod, "REA-") then "REAPROVEITADO"
+				        else if Text.Contains(Cod, "SUC-") then "DESUSO"
+				        else if [Material] <> null and [Material] <> "" then "NOVO"
+				        else "VAZIO"
+				    ),
+				    #"Tipo Alterado1" = Table.TransformColumnTypes(Condição,{{"Condição", type text}, {"Quantidade Movimentada", Int64.Type}}),
+				    #"Linhas Filtradas" = Table.SelectRows(#"Tipo Alterado1", each not Text.Contains([Nº. Documento], "T"))
+				in
+				    #"Linhas Filtradas"
+				```
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

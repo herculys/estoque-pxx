@@ -1,0 +1,139 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "efeb35cce5d236b40aae",
+  "position": {
+    "x": 0,
+    "y": 165.31862745098039,
+    "z": 4000,
+    "height": 214.68137254901961,
+    "width": 298.97058823529409,
+    "tabOrder": 4000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "f_MateriaisAplicados"
+                    }
+                  },
+                  "Property": "Desc. Tipo Serv."
+                }
+              },
+              "queryRef": "f_MateriaisAplicados.Desc. Tipo Serv.",
+              "nativeQueryRef": "Desc. Tipo Serv."
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_MateriaisAplicados"
+                        }
+                      },
+                      "Property": "Qtde. Aplic."
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(f_MateriaisAplicados.Qtde. Aplic.)",
+              "nativeQueryRef": "Qtde. Aplic.",
+              "displayName": "Qtde. Aplic."
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "f_MateriaisAplicados"
+                      }
+                    },
+                    "Property": "Qtde. Aplic."
+                  }
+                },
+                "Function": 0
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "values": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "211.64973187789198D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "f_MateriaisAplicados.Desc. Tipo Serv."
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "stylePreset": [
+        {
+          "properties": {
+            "name": {
+              "expr": {
+                "Literal": {
+                  "Value": "'None'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "PXX"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "3af88e55-9fee-4061-8880-f9cf46286752"
+  }
+}

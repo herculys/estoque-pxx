@@ -1,0 +1,654 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/2.1.0/schema.json",
+  "displayName": "Saldo Volante",
+  "name": "b5943f4df582ba64f245",
+  "options": {
+    "targetVisualNames": []
+  },
+  "explorationState": {
+    "version": "1.3",
+    "activeSection": "04cde8ffd0890a50aedb",
+    "sections": {
+      "04cde8ffd0890a50aedb": {
+        "visualContainers": {
+          "3f0eeb300d001ccbddd1": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "1543ef73a6e0b0c3b400",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_SaldoVolante"
+                        }
+                      },
+                      "Property": "NOME"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "selection": [
+                    {
+                      "properties": {
+                        "strictSingleSelect": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "false"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_SaldoVolante"
+                        }
+                      },
+                      "Property": "NOME"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "61053a1011e992990403": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "0202159720b81e2b4b9e",
+                  "type": "Advanced",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "s",
+                        "Entity": "f_SaldoVolante",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Not": {
+                            "Expression": {
+                              "In": {
+                                "Expressions": [
+                                  {
+                                    "Column": {
+                                      "Expression": {
+                                        "SourceRef": {
+                                          "Source": "s"
+                                        }
+                                      },
+                                      "Property": "COMPLEMENTAR"
+                                    }
+                                  }
+                                ],
+                                "Values": [
+                                  [
+                                    {
+                                      "Literal": {
+                                        "Value": "'-'"
+                                      }
+                                    }
+                                  ]
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_SaldoVolante"
+                        }
+                      },
+                      "Property": "COMPLEMENTAR"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "7c0acc4666768ca2ec0b",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_SaldoVolante"
+                        }
+                      },
+                      "Property": "PROJETO"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "62a5e72a7003377d607b",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_SaldoVolante"
+                        }
+                      },
+                      "Property": "COMPLEMENTAR"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "5f8415e69ee2620eb50b",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_SaldoVolante"
+                        }
+                      },
+                      "Property": "DESCRICAO"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "e681e21b4d1dd00896e8",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "f_SaldoVolante"
+                            }
+                          },
+                          "Property": "SALDO"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "11a280e0ed2bb0a30290",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_SaldoVolante"
+                        }
+                      },
+                      "Property": "MATERIAL"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "27d44756bbb97aa31e9c",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_SaldoVolante"
+                        }
+                      },
+                      "Property": "EQUIPE"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "27e94880040295113ace",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_SaldoVolante"
+                        }
+                      },
+                      "Property": "NOME"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "2af78e9de8230eed2cd9",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "d_ListagemProdutos"
+                        }
+                      },
+                      "Property": "Unidade"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "616fb9f7a2b97113eec7",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_SaldoVolante"
+                        }
+                      },
+                      "Property": "Posse (Dias)"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "tableEx",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_SaldoVolante"
+                        }
+                      },
+                      "Property": "Posse (Dias)"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "d9d56c4429827bd06d11": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "470b22a32d1d87c66291",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_SaldoVolante"
+                        }
+                      },
+                      "Property": "PROJETO"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "ba3163d995d273b00aa9",
+                  "type": "Categorical",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "s",
+                        "Entity": "f_SaldoVolante",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "In": {
+                            "Expressions": [
+                              {
+                                "Column": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Source": "s"
+                                    }
+                                  },
+                                  "Property": "COMPLEMENTAR"
+                                }
+                              }
+                            ],
+                            "Values": [
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "'-'"
+                                  }
+                                }
+                              ]
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_SaldoVolante"
+                        }
+                      },
+                      "Property": "COMPLEMENTAR"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "82fe831e106650370504",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_SaldoVolante"
+                        }
+                      },
+                      "Property": "EQUIPE"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "8d654e5080a007115ce5",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_SaldoVolante"
+                        }
+                      },
+                      "Property": "DESCRICAO"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "4af26461445aa3801864",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "f_SaldoVolante"
+                            }
+                          },
+                          "Property": "SALDO"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "8063d0b40b0106958d2e",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_SaldoVolante"
+                        }
+                      },
+                      "Property": "NOME"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "c1d61741105ae3892dd0",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_SaldoVolante"
+                        }
+                      },
+                      "Property": "MATERIAL"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "728b08c1ab0e70756b67",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "d_ListagemProdutos"
+                        }
+                      },
+                      "Property": "Unidade"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "tableEx",
+              "objects": {}
+            }
+          },
+          "09ea8e8e932832bb5ae2": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "4df3147a1bac02688353",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "d_ListagemEquipes"
+                        }
+                      },
+                      "Property": "Supervisor"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "selection": [
+                    {
+                      "properties": {
+                        "strictSingleSelect": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "false"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "d_ListagemEquipes"
+                        }
+                      },
+                      "Property": "Supervisor"
+                    }
+                  }
+                ]
+              },
+              "expansionStates": [
+                {
+                  "roles": [
+                    "Values"
+                  ],
+                  "levels": [
+                    {
+                      "queryRefs": [
+                        "d_ListagemEquipes.Supervisor"
+                      ],
+                      "isCollapsed": true,
+                      "identityKeys": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Entity": "d_ListagemEquipes"
+                              }
+                            },
+                            "Property": "Supervisor"
+                          }
+                        }
+                      ],
+                      "isPinned": true
+                    }
+                  ],
+                  "root": {
+                    "identityValues": null,
+                    "children": [
+                      {
+                        "identityValues": [
+                          {
+                            "Literal": {
+                              "Value": "'ADINON DOS SANTOS DA GRAÇA'"
+                            }
+                          }
+                        ],
+                        "isToggled": true
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          "a272e64830ee91ab6c3d": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "4713b9a0caae1a2d1706": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "263139a23de4829c10e6",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_SaldoVolante"
+                        }
+                      },
+                      "Property": "DESCRICAO"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "textSlicer",
+              "objects": {}
+            }
+          },
+          "b58b8d0b6da38025354c": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {}
+            }
+          },
+          "0f6e3b782ce7164a3071": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          }
+        }
+      }
+    },
+    "objects": {
+      "merge": {
+        "outspacePane": [
+          {
+            "properties": {
+              "expanded": {
+                "expr": {
+                  "Literal": {
+                    "Value": "false"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

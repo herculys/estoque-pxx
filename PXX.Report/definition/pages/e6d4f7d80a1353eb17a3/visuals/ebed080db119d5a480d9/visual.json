@@ -1,0 +1,327 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "ebed080db119d5a480d9",
+  "position": {
+    "x": 689.78783592644982,
+    "y": 164.2998585572843,
+    "z": 7000,
+    "height": 850.01414427157,
+    "width": 1189.4766619519096,
+    "tabOrder": 6000
+  },
+  "visual": {
+    "visualType": "decompositionTreeVisual",
+    "query": {
+      "queryState": {
+        "Analyze": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_Backlog"
+                        }
+                      },
+                      "Property": "Nº. Ordem Serviço"
+                    }
+                  },
+                  "Function": 5
+                }
+              },
+              "queryRef": "CountNonNull(f_Backlog.Nº. Ordem Serviço)",
+              "nativeQueryRef": "Contagem de Nº. Ordem Serviço"
+            }
+          ]
+        },
+        "ExplainBy": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "f_Backlog"
+                    }
+                  },
+                  "Property": "Categoria Equipamento"
+                }
+              },
+              "queryRef": "f_Backlog.Categoria Equipamento",
+              "nativeQueryRef": "Categoria Equipamento1",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "f_Backlog"
+                    }
+                  },
+                  "Property": "Equipamento Instalado"
+                }
+              },
+              "queryRef": "f_Backlog.Equipamento Instalado",
+              "nativeQueryRef": "Equipamento Instalado1",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "f_Backlog"
+                    }
+                  },
+                  "Property": "Projeto"
+                }
+              },
+              "queryRef": "f_Backlog.Projeto",
+              "nativeQueryRef": "Projeto",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "f_Backlog"
+                    }
+                  },
+                  "Property": "Cidade"
+                }
+              },
+              "queryRef": "f_Backlog.Cidade",
+              "nativeQueryRef": "Cidade1",
+              "active": true
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "f_Backlog"
+                      }
+                    },
+                    "Property": "Nº. Ordem Serviço"
+                  }
+                },
+                "Function": 5
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "expansionStates": [
+      {
+        "roles": [
+          "ExplainBy"
+        ],
+        "levels": [
+          {
+            "queryRefs": [
+              "f_Backlog.Categoria Equipamento"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "f_Backlog"
+                    }
+                  },
+                  "Property": "Categoria Equipamento"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "f_Backlog.Equipamento Instalado"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "f_Backlog"
+                    }
+                  },
+                  "Property": "Equipamento Instalado"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "f_Backlog.Projeto"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "f_Backlog"
+                    }
+                  },
+                  "Property": "Projeto"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "f_Backlog.Cidade"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "f_Backlog"
+                    }
+                  },
+                  "Property": "Cidade"
+                }
+              }
+            ],
+            "isPinned": true
+          }
+        ],
+        "root": {
+          "children": [
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'ONT WIFI 6'"
+                  }
+                }
+              ],
+              "isToggled": true,
+              "children": [
+                {
+                  "identityValues": [
+                    {
+                      "Literal": {
+                        "Value": "'ONU ZTE GPON WIFI6 AX3000 F6600P'"
+                      }
+                    }
+                  ],
+                  "isToggled": true,
+                  "children": [
+                    {
+                      "identityValues": [
+                        {
+                          "Literal": {
+                            "Value": "'OP-INST-VT-NATAL'"
+                          }
+                        }
+                      ],
+                      "isToggled": true
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "objects": {
+      "tree": [
+        {
+          "properties": {
+            "effectiveBarsPerLevel": {
+              "expr": {
+                "Literal": {
+                  "Value": "14L"
+                }
+              }
+            },
+            "density": {
+              "expr": {
+                "Literal": {
+                  "Value": "'dense'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dataLabels": [
+        {
+          "properties": {
+            "dataLabelFontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dataBars": [
+        {
+          "properties": {
+            "dataBarWidthPercent": {
+              "expr": {
+                "Literal": {
+                  "Value": "150L"
+                }
+              }
+            },
+            "positiveBarColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFD900'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

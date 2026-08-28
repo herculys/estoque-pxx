@@ -1,0 +1,325 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "55e9284b7854b33ee563",
+  "displayName": "Relatório Aplicados",
+  "displayOption": "FitToPage",
+  "height": 1080,
+  "width": 1920,
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "11c54b83a78c01bac26c",
+        "ordinal": 0,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "f_MateriaisAplicados"
+              }
+            },
+            "Property": "Projeto"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User",
+        "objects": {
+          "general": [
+            {
+              "properties": {}
+            }
+          ]
+        }
+      },
+      {
+        "name": "ecab2f47916708073d5f",
+        "ordinal": 1,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "f_MateriaisAplicados"
+              }
+            },
+            "Property": "Cód. Material"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User"
+      },
+      {
+        "name": "2d0fc852118f77132b1d",
+        "ordinal": 2,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "f_MateriaisAplicados"
+              }
+            },
+            "Property": "Material"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User"
+      },
+      {
+        "name": "c7b798d3e10a83c29114",
+        "ordinal": 3,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "f_MateriaisAplicados"
+              }
+            },
+            "Property": "Condição"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User"
+      },
+      {
+        "name": "75811df5c6004b5fc979",
+        "ordinal": 4,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "f_MateriaisAplicados"
+              }
+            },
+            "Property": "d_DE-PARA-SERVIÇO.CATEGORIA"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User"
+      },
+      {
+        "name": "a08f3a58e2f49544fbb3",
+        "ordinal": 5,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "f_MateriaisAplicados"
+              }
+            },
+            "Property": "d_DE-PARA-TECNOLOGIA.CATEGORIA"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User"
+      },
+      {
+        "name": "3867b778cfb15294229e",
+        "ordinal": 6,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "f_MateriaisAplicados"
+              }
+            },
+            "Property": "Serializado?"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "f",
+              "Entity": "f_MateriaisAplicados",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "In": {
+                  "Expressions": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "f"
+                          }
+                        },
+                        "Property": "Serializado?"
+                      }
+                    }
+                  ],
+                  "Values": [
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'SIM'"
+                        }
+                      }
+                    ]
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User"
+      },
+      {
+        "name": "4c3238d40c040501329d",
+        "ordinal": 7,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "f_MateriaisAplicados"
+              }
+            },
+            "Property": "Contrato"
+          }
+        },
+        "type": "Advanced",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "f",
+              "Entity": "f_MateriaisAplicados",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Contains": {
+                  "Left": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Source": "f"
+                        }
+                      },
+                      "Property": "Contrato"
+                    }
+                  },
+                  "Right": {
+                    "Literal": {
+                      "Value": "'OP'"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User"
+      }
+    ],
+    "filterSortOrder": "Custom"
+  },
+  "pageBinding": {
+    "name": "9600f3806b3b99eccd21",
+    "type": "Default",
+    "parameters": []
+  },
+  "objects": {
+    "background": [
+      {
+        "properties": {
+          "image": {
+            "image": {
+              "name": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'Background.png'"
+                  }
+                }
+              },
+              "url": {
+                "expr": {
+                  "ResourcePackageItem": {
+                    "PackageName": "RegisteredResources",
+                    "PackageType": 1,
+                    "ItemName": "Background3934646820346377.png"
+                  }
+                }
+              },
+              "scaling": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'Fit'"
+                  }
+                }
+              }
+            }
+          },
+          "transparency": {
+            "expr": {
+              "Literal": {
+                "Value": "0D"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "visibility": "HiddenInViewMode",
+  "visualInteractions": [
+    {
+      "source": "3346838908691bbe69c6",
+      "target": "71464068564792848cf2",
+      "type": "DataFilter"
+    },
+    {
+      "source": "abf82425e4004eabe3ed",
+      "target": "48c7a3f4147dafa710d7",
+      "type": "NoFilter"
+    },
+    {
+      "source": "abf82425e4004eabe3ed",
+      "target": "71464068564792848cf2",
+      "type": "NoFilter"
+    },
+    {
+      "source": "abf82425e4004eabe3ed",
+      "target": "a97a2b97ecbf1d3685a9",
+      "type": "NoFilter"
+    },
+    {
+      "source": "abf82425e4004eabe3ed",
+      "target": "9486b47cdbc89b219a52",
+      "type": "NoFilter"
+    },
+    {
+      "source": "abf82425e4004eabe3ed",
+      "target": "c4d4d1d3345773f22a82",
+      "type": "NoFilter"
+    },
+    {
+      "source": "abf82425e4004eabe3ed",
+      "target": "89e0aadfd3e9aa4466aa",
+      "type": "NoFilter"
+    },
+    {
+      "source": "3346838908691bbe69c6",
+      "target": "4ca3d814d98eaaa0d8b9",
+      "type": "NoFilter"
+    },
+    {
+      "source": "3346838908691bbe69c6",
+      "target": "047ac9ce228275e6a1d0",
+      "type": "NoFilter"
+    },
+    {
+      "source": "3346838908691bbe69c6",
+      "target": "695608f0651bee220ed7",
+      "type": "NoFilter"
+    },
+    {
+      "source": "3346838908691bbe69c6",
+      "target": "ba9db39420cd5a535c0a",
+      "type": "NoFilter"
+    }
+  ]
+}

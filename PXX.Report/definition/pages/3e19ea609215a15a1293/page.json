@@ -1,0 +1,264 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "3e19ea609215a15a1293",
+  "displayName": "Tecnologia/Plano",
+  "displayOption": "FitToPage",
+  "height": 1080,
+  "width": 1920,
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "284dfe3334012122c135",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "f_MateriaisAplicados"
+              }
+            },
+            "Property": "Serializado?"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "f",
+              "Entity": "f_MateriaisAplicados",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "In": {
+                  "Expressions": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "f"
+                          }
+                        },
+                        "Property": "Serializado?"
+                      }
+                    }
+                  ],
+                  "Values": [
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'SIM'"
+                        }
+                      }
+                    ]
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User"
+      },
+      {
+        "name": "2d4383b011d063aa3bb9",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "f_MateriaisAplicados"
+              }
+            },
+            "Property": "Contrato"
+          }
+        },
+        "type": "Advanced",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "f",
+              "Entity": "f_MateriaisAplicados",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Contains": {
+                  "Left": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Source": "f"
+                        }
+                      },
+                      "Property": "Contrato"
+                    }
+                  },
+                  "Right": {
+                    "Literal": {
+                      "Value": "'OP'"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User",
+        "objects": {
+          "general": [
+            {
+              "properties": {
+                "isInvertedSelectionMode": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "objects": {
+    "background": [
+      {
+        "properties": {
+          "image": {
+            "image": {
+              "name": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'Background.png'"
+                  }
+                }
+              },
+              "url": {
+                "expr": {
+                  "ResourcePackageItem": {
+                    "PackageName": "RegisteredResources",
+                    "PackageType": 1,
+                    "ItemName": "Background3934646820346377.png"
+                  }
+                }
+              },
+              "scaling": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'Fit'"
+                  }
+                }
+              }
+            }
+          },
+          "transparency": {
+            "expr": {
+              "Literal": {
+                "Value": "0D"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "visibility": "HiddenInViewMode",
+  "visualInteractions": [
+    {
+      "source": "6ce2d854200807ce0d11",
+      "target": "3e26d0527dda5912ba99",
+      "type": "DataFilter"
+    },
+    {
+      "source": "3e26d0527dda5912ba99",
+      "target": "6ce2d854200807ce0d11",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ecf4ed9066732da166d2",
+      "target": "6ce2d854200807ce0d11",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ecf4ed9066732da166d2",
+      "target": "3e26d0527dda5912ba99",
+      "type": "DataFilter"
+    },
+    {
+      "source": "6ce2d854200807ce0d11",
+      "target": "15169720e8bbe8db870d",
+      "type": "DataFilter"
+    },
+    {
+      "source": "3e26d0527dda5912ba99",
+      "target": "15169720e8bbe8db870d",
+      "type": "DataFilter"
+    },
+    {
+      "source": "15169720e8bbe8db870d",
+      "target": "3e26d0527dda5912ba99",
+      "type": "DataFilter"
+    },
+    {
+      "source": "15169720e8bbe8db870d",
+      "target": "6ce2d854200807ce0d11",
+      "type": "NoFilter"
+    },
+    {
+      "source": "dcbb078a08975590ce8b",
+      "target": "6ce2d854200807ce0d11",
+      "type": "DataFilter"
+    },
+    {
+      "source": "dcbb078a08975590ce8b",
+      "target": "3e26d0527dda5912ba99",
+      "type": "DataFilter"
+    },
+    {
+      "source": "dcbb078a08975590ce8b",
+      "target": "15169720e8bbe8db870d",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ffbb07c18c05d7a5b0ee",
+      "target": "3e26d0527dda5912ba99",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ffbb07c18c05d7a5b0ee",
+      "target": "6ce2d854200807ce0d11",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ffbb07c18c05d7a5b0ee",
+      "target": "15169720e8bbe8db870d",
+      "type": "DataFilter"
+    },
+    {
+      "source": "3e26d0527dda5912ba99",
+      "target": "ffbb07c18c05d7a5b0ee",
+      "type": "DataFilter"
+    },
+    {
+      "source": "6ce2d854200807ce0d11",
+      "target": "ffbb07c18c05d7a5b0ee",
+      "type": "DataFilter"
+    },
+    {
+      "source": "15169720e8bbe8db870d",
+      "target": "ffbb07c18c05d7a5b0ee",
+      "type": "DataFilter"
+    },
+    {
+      "source": "15169720e8bbe8db870d",
+      "target": "4720363474b6bb385cba",
+      "type": "NoFilter"
+    }
+  ]
+}

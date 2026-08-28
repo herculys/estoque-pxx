@@ -1,0 +1,136 @@
+table f_SituaçãoMateriaisSaldoVolante
+	lineageTag: 5253af52-acd5-4c22-ad5f-58608174b7b7
+
+	column Contrato
+		dataType: string
+		lineageTag: fdf86a41-9aad-454b-a23e-3f4c6945cc1f
+		summarizeBy: none
+		sourceColumn: Contrato
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Projeto
+		dataType: string
+		lineageTag: 6274d9b6-8ea4-4cd4-b7e2-1fb563851db0
+		summarizeBy: none
+		sourceColumn: Projeto
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Matrícula
+		dataType: string
+		lineageTag: 85231ab0-1a00-4ac3-b8cf-c7f10bde688a
+		summarizeBy: none
+		sourceColumn: Matrícula
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Login
+		dataType: string
+		lineageTag: febdf0a0-b05a-48e6-9157-8206cc13bfff
+		summarizeBy: none
+		sourceColumn: Login
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Nome
+		dataType: string
+		lineageTag: 55e11b18-44a7-4253-9a33-2f35798fe7d3
+		summarizeBy: none
+		sourceColumn: Nome
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cod. Material'
+		dataType: string
+		lineageTag: d5768f26-54db-4fed-b808-cdaec098dc80
+		summarizeBy: none
+		sourceColumn: Cod. Material
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Descrição Material'
+		dataType: string
+		lineageTag: 1f0e4d92-39ad-40de-ab87-d17664104074
+		summarizeBy: none
+		sourceColumn: Descrição Material
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Grupo Material'
+		dataType: string
+		lineageTag: c462fd0e-b957-4f74-9d68-d934b4130d7f
+		summarizeBy: none
+		sourceColumn: Grupo Material
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Nº Serial'
+		dataType: string
+		lineageTag: c50fcf80-bc53-45dc-9898-a77f125f9885
+		summarizeBy: none
+		sourceColumn: Nº Serial
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Posse (Dias)'
+		dataType: int64
+		formatString: 0
+		lineageTag: 5f7a8493-511e-4ab7-a826-5ba086b42e5c
+		summarizeBy: sum
+		sourceColumn: Posse (Dias)
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Situação
+		dataType: string
+		lineageTag: 3f840c80-7867-4b24-a076-45a0e2526fa5
+		summarizeBy: none
+		sourceColumn: Situação
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition f_SituaçãoMateriaisSaldoVolante = m
+		mode: import
+		queryGroup: Estoque
+		source =
+				let
+				    Fonte = Excel.Workbook(File.Contents(#"Pasta Raiz" & "\Saldo Volante\Situação dos Materiais no Saldo Volante.xlsx"), null, true),
+				    SINAPSE_Sheet = Fonte{[Item="SINAPSE",Kind="Sheet"]}[Data],
+				    #"Linhas Superiores Removidas" = Table.Skip(SINAPSE_Sheet,4),
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(#"Linhas Superiores Removidas", [PromoteAllScalars=true]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"Contrato", type text}, {"Projeto", type text}, {"Matrícula", type text}, {"Login", type text}, {"Nome", type text}, {"Cod. Material", type text}, {"Descrição Material", type text}, {"Grupo Material", type any}, {"Nº Serial", type text}, {"Posse", type text}, {"Situação", type text}}),
+				    #"Texto Extraído Antes do Delimitador" = Table.TransformColumns(#"Tipo Alterado", {{"Posse", each Text.BeforeDelimiter(_, " "), type text}}),
+				    #"Tipo Alterado1" = Table.TransformColumnTypes(#"Texto Extraído Antes do Delimitador",{{"Posse", Int64.Type}}),
+				    #"Colunas Renomeadas" = Table.RenameColumns(#"Tipo Alterado1",{{"Posse", "Posse (Dias)"}})
+				in
+				    #"Colunas Renomeadas"
+
+	changedProperty = IsHidden
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

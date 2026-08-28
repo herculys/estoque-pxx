@@ -1,0 +1,125 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/report/3.3.0/schema.json",
+  "themeCollection": {
+    "baseTheme": {
+      "name": "CY26SU04",
+      "reportVersionAtImport": {
+        "visual": "2.8.0",
+        "report": "3.2.0",
+        "page": "2.3.1"
+      },
+      "type": "SharedResources"
+    }
+  },
+  "objects": {
+    "section": [
+      {
+        "properties": {
+          "verticalAlignment": {
+            "expr": {
+              "Literal": {
+                "Value": "'Top'"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "outspacePane": [
+      {
+        "properties": {
+          "expanded": {
+            "expr": {
+              "Literal": {
+                "Value": "false"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "publicCustomVisuals": [
+    "htmlContent443BE3AD55E043BF878BED274D3A6855",
+    "htmlContent443BE3AD55E043BF878BED274D3A6865"
+  ],
+  "resourcePackages": [
+    {
+      "name": "SharedResources",
+      "type": "SharedResources",
+      "items": [
+        {
+          "name": "CY26SU04",
+          "path": "BaseThemes/CY26SU04.json",
+          "type": "BaseTheme"
+        }
+      ]
+    },
+    {
+      "name": "RegisteredResources",
+      "type": "RegisteredResources",
+      "items": [
+        {
+          "name": "Background3934646820346377.png",
+          "path": "Background3934646820346377.png",
+          "type": "Image"
+        },
+        {
+          "name": "Background4545323096920737.png",
+          "path": "Background4545323096920737.png",
+          "type": "Image"
+        },
+        {
+          "name": "Ending6949359585017445.png",
+          "path": "Ending6949359585017445.png",
+          "type": "Image"
+        },
+        {
+          "name": "home5793470713396631.png",
+          "path": "home5793470713396631.png",
+          "type": "Image"
+        },
+        {
+          "name": "Logo_txt8582354067488899.png",
+          "path": "Logo_txt8582354067488899.png",
+          "type": "Image"
+        },
+        {
+          "name": "Logo_ZaaZ026694668830293367.png",
+          "path": "Logo_ZaaZ026694668830293367.png",
+          "type": "Image"
+        },
+        {
+          "name": "Logo8687561023809907.png",
+          "path": "Logo8687561023809907.png",
+          "type": "Image"
+        },
+        {
+          "name": "loja16018484983601278.png",
+          "path": "loja16018484983601278.png",
+          "type": "Image"
+        },
+        {
+          "name": "Plano_de_fundo007208245508871336.png",
+          "path": "Plano_de_fundo007208245508871336.png",
+          "type": "Image"
+        },
+        {
+          "name": "Wallpaper010450034612323855.png",
+          "path": "Wallpaper010450034612323855.png",
+          "type": "Image"
+        }
+      ]
+    }
+  ],
+  "settings": {
+    "useStylableVisualContainerHeader": true,
+    "exportDataMode": "AllowSummarized",
+    "defaultDrillFilterOtherVisuals": true,
+    "allowChangeFilterTypes": true,
+    "useEnhancedTooltips": true,
+    "useDefaultAggregateDisplayName": true,
+    "customMemoryLimit": "1048576",
+    "customTimeoutLimit": "225"
+  }
+}

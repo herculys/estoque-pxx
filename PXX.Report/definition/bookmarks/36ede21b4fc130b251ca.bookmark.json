@@ -1,0 +1,1598 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/2.1.0/schema.json",
+  "displayName": "Relatório Aplicados",
+  "name": "36ede21b4fc130b251ca",
+  "options": {
+    "targetVisualNames": []
+  },
+  "explorationState": {
+    "version": "1.3",
+    "activeSection": "55e9284b7854b33ee563",
+    "sections": {
+      "55e9284b7854b33ee563": {
+        "filters": {
+          "byExpr": [
+            {
+              "name": "11c54b83a78c01bac26c",
+              "type": "Categorical",
+              "expression": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "f_MateriaisAplicados"
+                    }
+                  },
+                  "Property": "Projeto"
+                }
+              },
+              "howCreated": 1
+            },
+            {
+              "name": "ecab2f47916708073d5f",
+              "type": "Categorical",
+              "expression": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "f_MateriaisAplicados"
+                    }
+                  },
+                  "Property": "Cód. Material"
+                }
+              },
+              "howCreated": 1
+            },
+            {
+              "name": "2d0fc852118f77132b1d",
+              "type": "Categorical",
+              "expression": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "f_MateriaisAplicados"
+                    }
+                  },
+                  "Property": "Material"
+                }
+              },
+              "howCreated": 1
+            },
+            {
+              "name": "c7b798d3e10a83c29114",
+              "type": "Categorical",
+              "expression": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "f_MateriaisAplicados"
+                    }
+                  },
+                  "Property": "Condição"
+                }
+              },
+              "howCreated": 1
+            },
+            {
+              "name": "75811df5c6004b5fc979",
+              "type": "Categorical",
+              "expression": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "f_MateriaisAplicados"
+                    }
+                  },
+                  "Property": "d_DE-PARA-SERVIÇO.CATEGORIA"
+                }
+              },
+              "howCreated": 1
+            },
+            {
+              "name": "a08f3a58e2f49544fbb3",
+              "type": "Categorical",
+              "expression": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "f_MateriaisAplicados"
+                    }
+                  },
+                  "Property": "d_DE-PARA-TECNOLOGIA.CATEGORIA"
+                }
+              },
+              "howCreated": 1
+            },
+            {
+              "name": "3867b778cfb15294229e",
+              "type": "Categorical",
+              "filter": {
+                "Version": 2,
+                "From": [
+                  {
+                    "Name": "f",
+                    "Entity": "f_MateriaisAplicados",
+                    "Type": 0
+                  }
+                ],
+                "Where": [
+                  {
+                    "Condition": {
+                      "In": {
+                        "Expressions": [
+                          {
+                            "Column": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Source": "f"
+                                }
+                              },
+                              "Property": "Serializado?"
+                            }
+                          }
+                        ],
+                        "Values": [
+                          [
+                            {
+                              "Literal": {
+                                "Value": "'SIM'"
+                              }
+                            }
+                          ]
+                        ]
+                      }
+                    }
+                  }
+                ]
+              },
+              "expression": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "f_MateriaisAplicados"
+                    }
+                  },
+                  "Property": "Serializado?"
+                }
+              },
+              "howCreated": 1
+            },
+            {
+              "name": "4c3238d40c040501329d",
+              "type": "Advanced",
+              "filter": {
+                "Version": 2,
+                "From": [
+                  {
+                    "Name": "f",
+                    "Entity": "f_MateriaisAplicados",
+                    "Type": 0
+                  }
+                ],
+                "Where": [
+                  {
+                    "Condition": {
+                      "Contains": {
+                        "Left": {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "f"
+                              }
+                            },
+                            "Property": "Contrato"
+                          }
+                        },
+                        "Right": {
+                          "Literal": {
+                            "Value": "'OP'"
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              "expression": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "f_MateriaisAplicados"
+                    }
+                  },
+                  "Property": "Contrato"
+                }
+              },
+              "howCreated": 1
+            }
+          ]
+        },
+        "visualContainers": {
+          "047ac9ce228275e6a1d0": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "3c9bcce632b31a010d62",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "f_MateriaisAplicados"
+                            }
+                          },
+                          "Property": "Qtde. Aplic."
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "card",
+              "objects": {}
+            }
+          },
+          "0b80faef99ebaaefa8cc": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "e8d9ddcd0d50fb15cc0a",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_RM&DM"
+                        }
+                      },
+                      "Property": "_ConsumoMédioMêsRequisição"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "card",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_RM&DM"
+                        }
+                      },
+                      "Property": "_ConsumoMédioMêsRequisição"
+                    }
+                  }
+                }
+              ],
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "3346838908691bbe69c6": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "1e2ad2f96acc5b7ef3d9",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "d_Calendário"
+                        }
+                      },
+                      "Property": "Data"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "general": [
+                    {
+                      "properties": {
+                        "filter": {
+                          "filter": {
+                            "Version": 2,
+                            "From": [
+                              {
+                                "Name": "d",
+                                "Entity": "d_Calendário",
+                                "Type": 0
+                              }
+                            ],
+                            "Where": [
+                              {
+                                "Condition": {
+                                  "And": {
+                                    "Left": {
+                                      "Comparison": {
+                                        "ComparisonKind": 2,
+                                        "Left": {
+                                          "Column": {
+                                            "Expression": {
+                                              "SourceRef": {
+                                                "Source": "d"
+                                              }
+                                            },
+                                            "Property": "Data"
+                                          }
+                                        },
+                                        "Right": {
+                                          "Literal": {
+                                            "Value": "datetime'2026-01-01T00:00:00'"
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "Right": {
+                                      "Comparison": {
+                                        "ComparisonKind": 3,
+                                        "Left": {
+                                          "Column": {
+                                            "Expression": {
+                                              "SourceRef": {
+                                                "Source": "d"
+                                              }
+                                            },
+                                            "Property": "Data"
+                                          }
+                                        },
+                                        "Right": {
+                                          "Literal": {
+                                            "Value": "datetime'2026-08-01T00:00:00'"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'RelativeDatePicker'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "orderBy": [
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "d_Calendário"
+                        }
+                      },
+                      "Property": "Data"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "d_Calendário"
+                        }
+                      },
+                      "Property": "Data"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "48c7a3f4147dafa710d7": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "3757cf59e9687e47284b",
+                  "type": "RelativeDate",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "d",
+                        "Entity": "d_Calendário",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Between": {
+                            "Expression": {
+                              "Column": {
+                                "Expression": {
+                                  "SourceRef": {
+                                    "Source": "d"
+                                  }
+                                },
+                                "Property": "Data"
+                              }
+                            },
+                            "LowerBound": {
+                              "DateSpan": {
+                                "Expression": {
+                                  "DateAdd": {
+                                    "Expression": {
+                                      "Now": {}
+                                    },
+                                    "Amount": -6,
+                                    "TimeUnit": 2
+                                  }
+                                },
+                                "TimeUnit": 2
+                              }
+                            },
+                            "UpperBound": {
+                              "DateSpan": {
+                                "Expression": {
+                                  "DateAdd": {
+                                    "Expression": {
+                                      "Now": {}
+                                    },
+                                    "Amount": -1,
+                                    "TimeUnit": 2
+                                  }
+                                },
+                                "TimeUnit": 2
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "d_Calendário"
+                        }
+                      },
+                      "Property": "Data"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "fa904eb9f9318442e2bc",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "d_DE-PARA-SERVIÇO"
+                        }
+                      },
+                      "Property": "CATEGORIA"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "37b764de9bbb42b17940",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_MateriaisAplicados"
+                        }
+                      },
+                      "Property": "_qtd. Aplic. Mes Anterior"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "a70cd3a77aba8543f045",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "f_MateriaisAplicados"
+                            }
+                          },
+                          "Property": "Qtde. Aplic."
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "3c0377b35800e10b12a6",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "d_Calendário"
+                        }
+                      },
+                      "Property": "Ano-Mês"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "kpi",
+              "objects": {}
+            }
+          },
+          "4ca3d814d98eaaa0d8b9": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "7b3041af364b35839f92",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_MateriaisAplicados"
+                        }
+                      },
+                      "Property": "Condição"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "0a1cd340f1c48043529d",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "f_MateriaisAplicados"
+                            }
+                          },
+                          "Property": "Qtde. Aplic."
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "donutChart",
+              "objects": {},
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_MateriaisAplicados"
+                        }
+                      },
+                      "Property": "Condição"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "56796c47307c435c6a5a": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "a780de63eb6bf0a4ff15",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_RM&DM"
+                        }
+                      },
+                      "Property": "_Qtd_Requisitada"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "card",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_RM&DM"
+                        }
+                      },
+                      "Property": "_Qtd_Requisitada"
+                    }
+                  }
+                }
+              ],
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "63f1a696ef37a5134a94": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "3757cf59e9687e47284b",
+                  "type": "RelativeDate",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "d",
+                        "Entity": "d_Calendário",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Between": {
+                            "Expression": {
+                              "Column": {
+                                "Expression": {
+                                  "SourceRef": {
+                                    "Source": "d"
+                                  }
+                                },
+                                "Property": "Data"
+                              }
+                            },
+                            "LowerBound": {
+                              "DateSpan": {
+                                "Expression": {
+                                  "DateAdd": {
+                                    "Expression": {
+                                      "Now": {}
+                                    },
+                                    "Amount": -6,
+                                    "TimeUnit": 2
+                                  }
+                                },
+                                "TimeUnit": 2
+                              }
+                            },
+                            "UpperBound": {
+                              "DateSpan": {
+                                "Expression": {
+                                  "DateAdd": {
+                                    "Expression": {
+                                      "Now": {}
+                                    },
+                                    "Amount": -1,
+                                    "TimeUnit": 2
+                                  }
+                                },
+                                "TimeUnit": 2
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "d_Calendário"
+                        }
+                      },
+                      "Property": "Data"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "fa904eb9f9318442e2bc",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "d_DE-PARA-SERVIÇO"
+                        }
+                      },
+                      "Property": "CATEGORIA"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "3245bfd2f213dfd8261d",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_RM&DM"
+                        }
+                      },
+                      "Property": "_Qtd_Requisitada_MêsAnterior"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "8bb0377f57d9e6548cfa",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_RM&DM"
+                        }
+                      },
+                      "Property": "_Qtd_Requisitada"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "8e04664ac9191a825e72",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "d_Calendário"
+                        }
+                      },
+                      "Property": "Ano-Mês"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "kpi",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "695608f0651bee220ed7": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "f110ef80eb01dd6c3841",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_MateriaisAplicados"
+                        }
+                      },
+                      "Property": "d_DE-PARA-TECNOLOGIA.CATEGORIA"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "d2aec85ec8814a1e553b",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "f_MateriaisAplicados"
+                            }
+                          },
+                          "Property": "Qtde. Aplic."
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "donutChart",
+              "objects": {},
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_MateriaisAplicados"
+                        }
+                      },
+                      "Property": "d_DE-PARA-TECNOLOGIA.CATEGORIA"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "71464068564792848cf2": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "0e4a642bfb141541b0ee",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "d_Calendário"
+                        }
+                      },
+                      "Property": "Ano-Mês"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "bcf652e3d813703f1768",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_MateriaisAplicados"
+                        }
+                      },
+                      "Property": "d_DE-PARA-TECNOLOGIA.CATEGORIA"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "415864a3c764296da09a",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "f_MateriaisAplicados"
+                            }
+                          },
+                          "Property": "Qtde. Aplic."
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "columnChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "d_Calendário"
+                        }
+                      },
+                      "Property": "Ano-Mês"
+                    }
+                  }
+                },
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_MateriaisAplicados"
+                        }
+                      },
+                      "Property": "d_DE-PARA-TECNOLOGIA.CATEGORIA"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "d_Calendário"
+                        }
+                      },
+                      "Property": "Ano-Mês"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "853bb92310c18c763b1b": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "8ab947528d5655aea104",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "d_Calendário"
+                        }
+                      },
+                      "Property": "Ano-Mês"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "83154889a8a713711e11",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_MateriaisAplicados"
+                        }
+                      },
+                      "Property": "d_DE-PARA-TECNOLOGIA.CATEGORIA"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "bbc11fe5b555a75d7e19",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "f_MateriaisAplicados"
+                            }
+                          },
+                          "Property": "Qtde. Aplic."
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "columnChart",
+              "objects": {},
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "d_Calendário"
+                        }
+                      },
+                      "Property": "Ano-Mês"
+                    }
+                  }
+                ]
+              },
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "89e0aadfd3e9aa4466aa": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {}
+            }
+          },
+          "9486b47cdbc89b219a52": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "09556ac1f63d2f548a4c",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "f_MateriaisAplicados"
+                            }
+                          },
+                          "Property": "Qtde. Aplic."
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "card",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "f_MateriaisAplicados"
+                            }
+                          },
+                          "Property": "Qtde. Aplic."
+                        }
+                      },
+                      "Function": 0
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "a97a2b97ecbf1d3685a9": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "836b1213206dd3756b9e",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_MateriaisAplicados"
+                        }
+                      },
+                      "Property": "_ConsumoMédioMês"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "card",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_MateriaisAplicados"
+                        }
+                      },
+                      "Property": "_ConsumoMédioMês"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "abf82425e4004eabe3ed": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "62a1aad42fd16691f097",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "d_Calendário"
+                        }
+                      },
+                      "Property": "Data"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "general": [
+                    {
+                      "properties": {
+                        "filter": {
+                          "filter": {
+                            "Version": 2,
+                            "From": [
+                              {
+                                "Name": "d",
+                                "Entity": "d_Calendário",
+                                "Type": 0
+                              }
+                            ],
+                            "Where": [
+                              {
+                                "Condition": {
+                                  "Comparison": {
+                                    "ComparisonKind": 0,
+                                    "Left": {
+                                      "Column": {
+                                        "Expression": {
+                                          "SourceRef": {
+                                            "Source": "d"
+                                          }
+                                        },
+                                        "Property": "Data"
+                                      }
+                                    },
+                                    "Right": {
+                                      "DateSpan": {
+                                        "Expression": {
+                                          "Now": {}
+                                        },
+                                        "TimeUnit": 2
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'RelativeDatePicker'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "d_Calendário"
+                        }
+                      },
+                      "Property": "Data"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "b4a07217557f57105c27": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "9c80c06096fe39f5f47a",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "d_Calendário"
+                        }
+                      },
+                      "Property": "Ano-Mês"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "9857db33374abd21cc1d",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_RM&DM"
+                        }
+                      },
+                      "Property": "Projeto"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "d4f61ebbc0238c114380",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_RM&DM"
+                        }
+                      },
+                      "Property": "_Qtd_Requisitada"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "columnChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "d_Calendário"
+                        }
+                      },
+                      "Property": "Ano-Mês"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "d_Calendário"
+                        }
+                      },
+                      "Property": "Ano-Mês"
+                    }
+                  }
+                ]
+              },
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "ba9db39420cd5a535c0a": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "46714a5eb4c5ba42fa58",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "f_MateriaisAplicados"
+                            }
+                          },
+                          "Property": "Qtde. Aplic."
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "card",
+              "objects": {}
+            }
+          },
+          "c4d4d1d3345773f22a82": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "c25acbb0810197d03bc1",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "d_Calendário"
+                        }
+                      },
+                      "Property": "Ano-Mês"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "a58b466cdc12aaf00bc6",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_MateriaisAplicados"
+                        }
+                      },
+                      "Property": "d_DE-PARA-TECNOLOGIA.CATEGORIA"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "c081cf2be07ec2e476b4",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_MateriaisAplicados"
+                        }
+                      },
+                      "Property": "Material"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "761ff413c61a1cf0aca0",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "f_MateriaisAplicados"
+                            }
+                          },
+                          "Property": "Qtde. Aplic."
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "pivotTable",
+              "objects": {},
+              "activeProjections": {
+                "Columns": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "d_Calendário"
+                        }
+                      },
+                      "Property": "Ano-Mês"
+                    }
+                  }
+                ],
+                "Rows": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_MateriaisAplicados"
+                        }
+                      },
+                      "Property": "d_DE-PARA-TECNOLOGIA.CATEGORIA"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_MateriaisAplicados"
+                        }
+                      },
+                      "Property": "Material"
+                    }
+                  }
+                ]
+              },
+              "expansionStates": [
+                {
+                  "roles": [
+                    "Rows"
+                  ],
+                  "levels": [
+                    {
+                      "queryRefs": [
+                        "f_MateriaisAplicados.d_DE-PARA-TECNOLOGIA.CATEGORIA"
+                      ],
+                      "identityKeys": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Entity": "f_MateriaisAplicados"
+                              }
+                            },
+                            "Property": "d_DE-PARA-TECNOLOGIA.CATEGORIA"
+                          }
+                        }
+                      ],
+                      "isPinned": true
+                    },
+                    {
+                      "queryRefs": [
+                        "f_MateriaisAplicados.Material"
+                      ],
+                      "isCollapsed": true,
+                      "isPinned": true
+                    }
+                  ],
+                  "root": {
+                    "identityValues": null,
+                    "children": [
+                      {
+                        "identityValues": [
+                          {
+                            "Literal": {
+                              "Value": "'OBSOLETO'"
+                            }
+                          }
+                        ],
+                        "isToggled": true
+                      },
+                      {
+                        "identityValues": [
+                          {
+                            "Literal": {
+                              "Value": "'NÃO MAPEADO'"
+                            }
+                          }
+                        ],
+                        "isToggled": true
+                      },
+                      {
+                        "identityValues": [
+                          {
+                            "Literal": {
+                              "Value": "'ROTEADOR 5G MESH'"
+                            }
+                          }
+                        ],
+                        "isToggled": true
+                      },
+                      {
+                        "identityValues": [
+                          {
+                            "Literal": {
+                              "Value": "'RADIO'"
+                            }
+                          }
+                        ],
+                        "isToggled": true
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          "f29046490642b802eee2": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "8e26c51f07134ef93a34",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Updated"
+                        }
+                      },
+                      "Property": "Atualização"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "card",
+              "objects": {}
+            }
+          }
+        }
+      }
+    },
+    "objects": {
+      "merge": {
+        "outspacePane": [
+          {
+            "properties": {
+              "expanded": {
+                "expr": {
+                  "Literal": {
+                    "Value": "true"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

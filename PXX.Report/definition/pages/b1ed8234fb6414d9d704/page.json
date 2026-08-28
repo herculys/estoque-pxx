@@ -1,0 +1,254 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "b1ed8234fb6414d9d704",
+  "displayName": "Relatório Retirados",
+  "displayOption": "FitToPage",
+  "height": 1080,
+  "width": 1920,
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "64172116f51e30ea6273",
+        "ordinal": 0,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "f_MateriaisRetirados"
+              }
+            },
+            "Property": "Projeto"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User"
+      },
+      {
+        "name": "3f234c3c2a3a7a8c6f16",
+        "ordinal": 1,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "f_MateriaisRetirados"
+              }
+            },
+            "Property": "Cód. Material"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User"
+      },
+      {
+        "name": "8b3e4ba44e1d6ddcd9b2",
+        "ordinal": 2,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "f_MateriaisRetirados"
+              }
+            },
+            "Property": "Material"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User"
+      },
+      {
+        "name": "69df118618ef447b764c",
+        "ordinal": 3,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "f_MateriaisRetirados"
+              }
+            },
+            "Property": "Condição"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User"
+      },
+      {
+        "name": "4ec34d1456dfc6864d6b",
+        "ordinal": 4,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "f_MateriaisRetirados"
+              }
+            },
+            "Property": "d_DE-PARA-SERVIÇO.CATEGORIA"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User"
+      },
+      {
+        "name": "8c764f104f8cab2ec1df",
+        "ordinal": 5,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "f_MateriaisRetirados"
+              }
+            },
+            "Property": "d_DE-PARA-TECNOLOGIA.CATEGORIA"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User"
+      },
+      {
+        "name": "ca8d81c1ccaf84dd2003",
+        "ordinal": 6,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "f_MateriaisRetirados"
+              }
+            },
+            "Property": "Serializado?"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "f",
+              "Entity": "f_MateriaisRetirados",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "In": {
+                  "Expressions": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "f"
+                          }
+                        },
+                        "Property": "Serializado?"
+                      }
+                    }
+                  ],
+                  "Values": [
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'SIM'"
+                        }
+                      }
+                    ]
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User"
+      }
+    ],
+    "filterSortOrder": "Custom"
+  },
+  "pageBinding": {
+    "name": "5cb8bda77f024b19b381",
+    "type": "Default",
+    "parameters": []
+  },
+  "objects": {
+    "background": [
+      {
+        "properties": {
+          "image": {
+            "image": {
+              "name": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'Background.png'"
+                  }
+                }
+              },
+              "url": {
+                "expr": {
+                  "ResourcePackageItem": {
+                    "PackageName": "RegisteredResources",
+                    "PackageType": 1,
+                    "ItemName": "Background3934646820346377.png"
+                  }
+                }
+              },
+              "scaling": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'Fit'"
+                  }
+                }
+              }
+            }
+          },
+          "transparency": {
+            "expr": {
+              "Literal": {
+                "Value": "0D"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "visibility": "HiddenInViewMode",
+  "visualInteractions": [
+    {
+      "source": "faddaf6477999e27e747",
+      "target": "4552fbac1d63fc551bdb",
+      "type": "NoFilter"
+    },
+    {
+      "source": "faddaf6477999e27e747",
+      "target": "c1c85e2281b9b0c6b94d",
+      "type": "NoFilter"
+    },
+    {
+      "source": "faddaf6477999e27e747",
+      "target": "ba6b0ce3998f833d8670",
+      "type": "NoFilter"
+    },
+    {
+      "source": "faddaf6477999e27e747",
+      "target": "bd9a0b4875e09b472fdf",
+      "type": "NoFilter"
+    },
+    {
+      "source": "faddaf6477999e27e747",
+      "target": "6d900730cabac3698b24",
+      "type": "NoFilter"
+    },
+    {
+      "source": "faddaf6477999e27e747",
+      "target": "a45a8e6f3fe72accd9bd",
+      "type": "NoFilter"
+    },
+    {
+      "source": "7f8c6ed98aeb246f9698",
+      "target": "5d727b3d5b5686dcd17e",
+      "type": "NoFilter"
+    },
+    {
+      "source": "7f8c6ed98aeb246f9698",
+      "target": "8054eb1da88566db63c5",
+      "type": "NoFilter"
+    }
+  ]
+}

@@ -1,0 +1,1313 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/2.1.0/schema.json",
+  "displayName": "Materiais DM",
+  "name": "47d36700a02e84c58a15",
+  "options": {
+    "targetVisualNames": []
+  },
+  "explorationState": {
+    "version": "1.3",
+    "activeSection": "10c1fab9a0759e0e6706",
+    "sections": {
+      "10c1fab9a0759e0e6706": {
+        "visualContainers": {
+          "0f2fb3f0ad720559ec08": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {}
+            }
+          },
+          "1611bc8c060b43a77156": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "25590bdf3fb74f85ffcd",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Updated"
+                        }
+                      },
+                      "Property": "Atualização"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "card",
+              "objects": {}
+            }
+          },
+          "20f80ad790552a5b54a4": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "b8f45d40fcafe968ac0c",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_RM&DM"
+                        }
+                      },
+                      "Property": "Contrato"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Basic'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "selection": [
+                    {
+                      "properties": {
+                        "strictSingleSelect": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "false"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_RM&DM"
+                        }
+                      },
+                      "Property": "Contrato"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "246944ad17da19306095": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "3e4cf3ac1ee0b404bce6",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_RM&DM"
+                        }
+                      },
+                      "Property": "_Qtd_Devolvida"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "card",
+              "objects": {}
+            }
+          },
+          "3068f9cfa95e7c1b4c64": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "e4ebcd82a777f597bf39",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_RM&DM"
+                        }
+                      },
+                      "Property": "Condição"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "advancedSlicerVisual",
+              "objects": {}
+            }
+          },
+          "4a80ec3cd27ab6303858": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "4285b18f3a77c022225b",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_RM&DM"
+                        }
+                      },
+                      "Property": "d_DE-PARA-TECNOLOGIA.CATEGORIA"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_RM&DM"
+                        }
+                      },
+                      "Property": "d_DE-PARA-TECNOLOGIA.CATEGORIA"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "4c940be0d55b604de45b": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "3ec3fda304b89acd90e4",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_RM&DM"
+                        }
+                      },
+                      "Property": "_DevoluçãoMédiaMês"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "card",
+              "objects": {}
+            }
+          },
+          "664da0931e2ebb0b6c25": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "7cb4d90dfb6a5f68684b",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "d_Calendário"
+                        }
+                      },
+                      "Property": "Ano-Mês"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "23795d83cac37483568f",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_MateriaisAplicados"
+                        }
+                      },
+                      "Property": "d_DE-PARA-TECNOLOGIA.CATEGORIA"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "a7cde7c5a41bc421d352",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "f_MateriaisAplicados"
+                            }
+                          },
+                          "Property": "Qtde. Aplic."
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "columnChart",
+              "objects": {},
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "d_Calendário"
+                        }
+                      },
+                      "Property": "Ano-Mês"
+                    }
+                  }
+                ]
+              },
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "71e6c28c4a08a6698b62": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "7ca1580db950980b6a40": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "3757cf59e9687e47284b",
+                  "type": "RelativeDate",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "d_Calendário"
+                        }
+                      },
+                      "Property": "Data"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "fa904eb9f9318442e2bc",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "d_DE-PARA-SERVIÇO"
+                        }
+                      },
+                      "Property": "CATEGORIA"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "cad6fa8f28061cf9380e",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_RM&DM"
+                        }
+                      },
+                      "Property": "_Qtd_Devolviva_MêsAnterior"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "b39a9f66507237b7fcc1",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_RM&DM"
+                        }
+                      },
+                      "Property": "_Qtd_Devolvida"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "9cfb9c638f10aa2cfffd",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "d_Calendário"
+                        }
+                      },
+                      "Property": "Ano-Mês"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "kpi",
+              "objects": {}
+            }
+          },
+          "976918e64bd8cd262c73": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "970b83c7da2d80d0c46d",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_RM&DM"
+                        }
+                      },
+                      "Property": "Projeto"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Basic'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "selection": [
+                    {
+                      "properties": {
+                        "strictSingleSelect": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "false"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_RM&DM"
+                        }
+                      },
+                      "Property": "Projeto"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "a11588280dc0cd38a1c3": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "bca62e58b8e89b39a975",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "d_Calendário"
+                        }
+                      },
+                      "Property": "Ano-Mês"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "095f4adf10544a2c3fae",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_RM&DM"
+                        }
+                      },
+                      "Property": "Projeto"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "0ca81192ea9f0a47b12e",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_RM&DM"
+                        }
+                      },
+                      "Property": "_Qtd_Requisitada"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "columnChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "d_Calendário"
+                        }
+                      },
+                      "Property": "Ano-Mês"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "d_Calendário"
+                        }
+                      },
+                      "Property": "Ano-Mês"
+                    }
+                  }
+                ]
+              },
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "a23158731e8c72d9a85e": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "b7fb7013e1791226b74d",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_RM&DM"
+                        }
+                      },
+                      "Property": "Código_1"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_RM&DM"
+                        }
+                      },
+                      "Property": "Código_1"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "ba40cd79a8e29110053d": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "8737a3d5e0de15042307",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_RM&DM"
+                        }
+                      },
+                      "Property": "_Qtd_Requisitada"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "card",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_RM&DM"
+                        }
+                      },
+                      "Property": "_Qtd_Requisitada"
+                    }
+                  }
+                }
+              ],
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "c86a32da868cb7439dd5": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "c953e8f548987a37803e": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "eadc3add31ce5076031f",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "d_Calendário"
+                        }
+                      },
+                      "Property": "Data"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "general": [
+                    {
+                      "properties": {
+                        "filter": {
+                          "filter": {
+                            "Version": 2,
+                            "From": [
+                              {
+                                "Name": "d",
+                                "Entity": "d_Calendário",
+                                "Type": 0
+                              }
+                            ],
+                            "Where": [
+                              {
+                                "Condition": {
+                                  "Comparison": {
+                                    "ComparisonKind": 0,
+                                    "Left": {
+                                      "Column": {
+                                        "Expression": {
+                                          "SourceRef": {
+                                            "Source": "d"
+                                          }
+                                        },
+                                        "Property": "Data"
+                                      }
+                                    },
+                                    "Right": {
+                                      "DateSpan": {
+                                        "Expression": {
+                                          "Now": {}
+                                        },
+                                        "TimeUnit": 3
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'RelativeDatePicker'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "orderBy": [
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "d_Calendário"
+                        }
+                      },
+                      "Property": "Data"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "d_Calendário"
+                        }
+                      },
+                      "Property": "Data"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "c99cb377a77738470d96": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "a12ebffcbfbc66af2b89",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_RM&DM"
+                        }
+                      },
+                      "Property": "_ConsumoMédioMêsRequisição"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "card",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_RM&DM"
+                        }
+                      },
+                      "Property": "_ConsumoMédioMêsRequisição"
+                    }
+                  }
+                }
+              ],
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "ce63c8471336d4dbca79": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "b955f477dd5cc81a95f0",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_RM&DM"
+                        }
+                      },
+                      "Property": "Contrato"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "745b5b634988ea92ff6d",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_RM&DM"
+                        }
+                      },
+                      "Property": "Projeto"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "873310c6b2c0d815a6e9",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_RM&DM"
+                        }
+                      },
+                      "Property": "Matrícula"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "5851b1d796ca2d295200",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_RM&DM"
+                        }
+                      },
+                      "Property": "Equipe"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "2a836cb07fbbade9ce3a",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_RM&DM"
+                        }
+                      },
+                      "Property": "Código_1"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "8cda419c40c9478d9c9d",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_RM&DM"
+                        }
+                      },
+                      "Property": "Material"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "e3b9b1ef44fb5aacf336",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_RM&DM"
+                        }
+                      },
+                      "Property": "Condição"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "c39e96c5f7c6673265cd",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_RM&DM"
+                        }
+                      },
+                      "Property": "_Qtd_Requisitada"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "ea1c2e4b182e32f90865",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_RM&DM"
+                        }
+                      },
+                      "Property": "_Qtd_Devolvida"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "0dad1c80544816553ce5",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_RM&DM"
+                        }
+                      },
+                      "Property": "Unidade Medida"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "1c17afb6c13c081381a6",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "d_Calendário"
+                        }
+                      },
+                      "Property": "Data"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "tableEx",
+              "objects": {}
+            }
+          },
+          "d632a1270d2739b53755": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "3757cf59e9687e47284b",
+                  "type": "RelativeDate",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "d",
+                        "Entity": "d_Calendário",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Between": {
+                            "Expression": {
+                              "Column": {
+                                "Expression": {
+                                  "SourceRef": {
+                                    "Source": "d"
+                                  }
+                                },
+                                "Property": "Data"
+                              }
+                            },
+                            "LowerBound": {
+                              "DateSpan": {
+                                "Expression": {
+                                  "DateAdd": {
+                                    "Expression": {
+                                      "Now": {}
+                                    },
+                                    "Amount": -6,
+                                    "TimeUnit": 2
+                                  }
+                                },
+                                "TimeUnit": 2
+                              }
+                            },
+                            "UpperBound": {
+                              "DateSpan": {
+                                "Expression": {
+                                  "DateAdd": {
+                                    "Expression": {
+                                      "Now": {}
+                                    },
+                                    "Amount": -1,
+                                    "TimeUnit": 2
+                                  }
+                                },
+                                "TimeUnit": 2
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "d_Calendário"
+                        }
+                      },
+                      "Property": "Data"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "fa904eb9f9318442e2bc",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "d_DE-PARA-SERVIÇO"
+                        }
+                      },
+                      "Property": "CATEGORIA"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "369786a37b1f82030760",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_RM&DM"
+                        }
+                      },
+                      "Property": "_Qtd_Requisitada_MêsAnterior"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "643e6e69304ad6791092",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_RM&DM"
+                        }
+                      },
+                      "Property": "_Qtd_Requisitada"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "c011512916df1a7c3a5a",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "d_Calendário"
+                        }
+                      },
+                      "Property": "Ano-Mês"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "kpi",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "d6554b80d0b0dc82a774": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "1910bbfaf65ae87070b1",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "d_Calendário"
+                        }
+                      },
+                      "Property": "Ano-Mês"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "9ae0ac1edea3a429d939",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_RM&DM"
+                        }
+                      },
+                      "Property": "Projeto"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "9bac0552123740e98d9c",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_RM&DM"
+                        }
+                      },
+                      "Property": "_Qtd_Devolvida"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "columnChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "d_Calendário"
+                        }
+                      },
+                      "Property": "Ano-Mês"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "d_Calendário"
+                        }
+                      },
+                      "Property": "Ano-Mês"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "e83b1e3aca07a0a23c07": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "fdfa00896c478e67b2a2": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "cc5f3c60cc4400a0725d",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_RM&DM"
+                        }
+                      },
+                      "Property": "Material"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_RM&DM"
+                        }
+                      },
+                      "Property": "Material"
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "objects": {
+      "merge": {
+        "outspacePane": [
+          {
+            "properties": {
+              "expanded": {
+                "expr": {
+                  "Literal": {
+                    "Value": "false"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,353 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "c4d4d1d3345773f22a82",
+  "position": {
+    "x": 129.75728155339806,
+    "y": 121.89320388349515,
+    "z": 12000,
+    "height": 900.43689320388353,
+    "width": 829.66019417475729,
+    "tabOrder": 11000
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Columns": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "d_Calendário"
+                    }
+                  },
+                  "Property": "Ano-Mês"
+                }
+              },
+              "queryRef": "d_Calendário.Ano-Mês",
+              "nativeQueryRef": "Ano-Mês",
+              "active": true
+            }
+          ]
+        },
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "f_MateriaisAplicados"
+                    }
+                  },
+                  "Property": "d_DE-PARA-TECNOLOGIA.CATEGORIA"
+                }
+              },
+              "queryRef": "f_MateriaisAplicados.d_DE-PARA-TECNOLOGIA.CATEGORIA",
+              "nativeQueryRef": "Categoria da Tecnologia",
+              "active": true,
+              "displayName": "Categoria da Tecnologia"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "f_MateriaisAplicados"
+                    }
+                  },
+                  "Property": "Material"
+                }
+              },
+              "queryRef": "f_MateriaisAplicados.Material",
+              "nativeQueryRef": "Material",
+              "active": true
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_MateriaisAplicados"
+                        }
+                      },
+                      "Property": "Qtde. Aplic."
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(f_MateriaisAplicados.Qtde. Aplic.)",
+              "nativeQueryRef": "Soma de Qtde. Aplic."
+            }
+          ]
+        }
+      }
+    },
+    "expansionStates": [
+      {
+        "roles": [
+          "Rows"
+        ],
+        "levels": [
+          {
+            "queryRefs": [
+              "f_MateriaisAplicados.d_DE-PARA-TECNOLOGIA.CATEGORIA"
+            ],
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "f_MateriaisAplicados"
+                    }
+                  },
+                  "Property": "d_DE-PARA-TECNOLOGIA.CATEGORIA"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "f_MateriaisAplicados.Material"
+            ],
+            "isCollapsed": true,
+            "isPinned": true
+          }
+        ],
+        "root": {
+          "children": [
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'OBSOLETO'"
+                  }
+                }
+              ],
+              "isToggled": true
+            },
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'NÃO MAPEADO'"
+                  }
+                }
+              ],
+              "isToggled": true
+            },
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'ROTEADOR 5G MESH'"
+                  }
+                }
+              ],
+              "isToggled": true
+            },
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'RADIO'"
+                  }
+                }
+              ],
+              "isToggled": true
+            }
+          ]
+        }
+      }
+    ],
+    "objects": {
+      "grid": [
+        {
+          "properties": {
+            "outlineColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "values": [
+        {
+          "properties": {
+            "backColorSecondary": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FAF8CC'"
+                    }
+                  }
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "columnAdjustment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'growToFit'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "341.90196194830855D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "f_MateriaisAplicados.d_DE-PARA-TECNOLOGIA.CATEGORIA"
+          }
+        }
+      ],
+      "rowHeaders": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.3
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dropShadow": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.6
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualTooltip": [
+        {
+          "properties": {
+            "section": {
+              "expr": {
+                "Literal": {
+                  "Value": "'e4c17ebdd6f89b21fdd2'"
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "100D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Quantitativo de Materiais Aplicados'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
